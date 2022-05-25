@@ -4,35 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Objective
+public class Objective : MonoBehaviour
 {
     public delegate void CompleteObjective();
     public static event CompleteObjective onCompleteObj;
 
     public string title;
-    private int experiencePoints;
-
-    private int reward;
 
     public bool isComplete = false;
 
-    public Action<Objective> checkIfComplete;
-
     public Objective instance;
-    public Objective(){
 
-    }
-    public Objective(string title, int experiencePoints, int reward, bool isComplete,Action<Objective> checkIfCompleteFunc){
-        this.title = title;
-        this.experiencePoints = experiencePoints;
-        this.reward = reward;
-        this.isComplete = isComplete;
-        this.checkIfComplete = checkIfCompleteFunc;
+    void Start()
+    {
         this.instance = this;
-    }
-    public CompleteObjective setOnCompleteObj(Mission currentMission){
-        //isComplete = true;
-        return onCompleteObj;
     }
     // public bool checkIfComplete(GameObject player, GameObject secretary){ 
     //     return true;

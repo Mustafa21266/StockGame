@@ -23,10 +23,13 @@ public class NPC : MonoBehaviour
         anim = GetComponent<Animator>();
         //controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        if (gameObject.transform.parent != null) { 
         for(var i = 1; i <  gameObject.transform.parent.childCount; i++){
             pathTargets.Add(gameObject.transform.parent.GetChild(i).gameObject);
         }
 
+        
+        }
         //Debug.Log(gameObject.CompareTag("Male NPC - Secretary").ToString() + gameObject.transform.parent.childCount);
         if(gameObject.CompareTag("Female NPC") || gameObject.CompareTag("Male NPC")){
             anim.SetBool("isWalking", false);
@@ -175,7 +178,7 @@ IEnumerator moveNPC(){
         f =  Vector3.ClampMagnitude(f, 0.3f);
         //Debug.Log(f.y);
         //controller.Move(f * speed * Time.deltaTime);  
-        rb.MovePosition(transform.position + f * 10f * Time.fixedDeltaTime);
+        rb.MovePosition(transform.position + f * 20f * Time.fixedDeltaTime);
         Quaternion targetRotation = Quaternion.LookRotation(f.normalized);
         //Debug.Log(targetRotation);
         targetRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 180 * Time.fixedDeltaTime);

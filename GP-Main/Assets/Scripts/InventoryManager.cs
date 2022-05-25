@@ -60,6 +60,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject NewspaperPanel;
     public GameObject QuizPanel;
     public GameObject TradingPanel;
+    public GameObject ChatPanel;
+    public GameObject InvestmentHubPanel;
 
     public GameObject AppPanels;
 
@@ -93,7 +95,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject numOfSharesInput;
 
     public GameObject scrollField;
-
+    public GameObject scrollFieldChat;
+    public GameObject scrollFieldInvestmentHub;
     public string currentlySelectedStockToSell;
 
     public List<string> dropdownOptions;
@@ -117,6 +120,8 @@ public class InventoryManager : MonoBehaviour
         apps.Add(new { appName = "Newspaper", appPanel =  NewspaperPanel.gameObject });
         apps.Add(new { appName = "Quiz", appPanel =  QuizPanel.gameObject });
         apps.Add(new { appName = "Trading", appPanel =  TradingPanel.gameObject });
+        apps.Add(new { appName = "Chat", appPanel =  ChatPanel.gameObject });
+        apps.Add(new { appName = "InvestmentHub", appPanel = InvestmentHubPanel.gameObject });
         //getInfo();
         //getSymbolsList();
         updateDropDown();
@@ -125,9 +130,12 @@ public class InventoryManager : MonoBehaviour
      var tempList = new List<string>();
         tempList.Add("Select Stock");
         this.dropdownOptions = new List<string>();
+        if (GameObject.FindObjectOfType<PlayerMovement>().stockPurchases != null) { 
         for(var i = 0; i < GameObject.FindObjectOfType<PlayerMovement>().stockPurchases.Count; i++){
             var newOp = String.Format("Id: {0} - {1} - {2} - {3} @ {4}",GameObject.FindObjectOfType<PlayerMovement>().stockPurchases[i].id, GameObject.FindObjectOfType<PlayerMovement>().stockPurchases[i].stockProfile.symbol, GameObject.FindObjectOfType<PlayerMovement>().stockPurchases[i].purchaseDate, GameObject.FindObjectOfType<PlayerMovement>().stockPurchases[i].numOfShares, GameObject.FindObjectOfType<PlayerMovement>().stockPurchases[i].stockProfile.price);
             tempList.Add(newOp);
+        }
+        
         }
         this.dropdownOptions = tempList;
         Debug.Log(sellingDropdown.GetComponent<TMP_Dropdown>());
@@ -235,6 +243,42 @@ public class InventoryManager : MonoBehaviour
         }
         StartCoroutine(OpenStockProfile(stockName));
         
+    }
+    public void OpenChatAppVoid()
+    {
+        audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/app_open", typeof(AudioClip));
+        if (!audioSrc.GetComponent<AudioSource>().isPlaying)
+        {
+            audioSrc.GetComponent<AudioSource>().Play();
+        }
+        StartCoroutine(OpenChatApp());
+
+    }
+    public void OpenInvestmentHubAppVoid()
+    {
+        audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/app_open", typeof(AudioClip));
+        if (!audioSrc.GetComponent<AudioSource>().isPlaying)
+        {
+            audioSrc.GetComponent<AudioSource>().Play();
+        }
+        StartCoroutine(OpenInvestmentHubApp());
+
+    }
+    IEnumerator OpenInvestmentHubApp()
+    {
+        yield return new WaitForSeconds(2f);
+        activeAppIndex = apps.IndexOf(apps[5]);
+        //Thread.Sleep(1000);
+        InvestmentHubPanel.SetActive(true);
+        scrollFieldInvestmentHub.GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
+    }
+    IEnumerator OpenChatApp()
+    {
+        yield return new WaitForSeconds(2f);
+        activeAppIndex = apps.IndexOf(apps[4]);
+        //Thread.Sleep(1000);
+        ChatPanel.SetActive(true);
+        scrollFieldChat.GetComponent<ScrollRect>().verticalNormalizedPosition = 0;
     }
     IEnumerator OpenStockProfile(string stockName){
         getStockDetails(stockName);
@@ -550,7 +594,9 @@ public class InventoryManager : MonoBehaviour
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
         }
-        apps[this.activeAppIndex].appPanel.SetActive(false);
+        for (var i = 0; i < apps.Count; i++) {
+            apps[i].appPanel.SetActive(false);
+        }
     }
     public void OpenBuyingTab(){
         BuyingGameObject.gameObject.SetActive(true);

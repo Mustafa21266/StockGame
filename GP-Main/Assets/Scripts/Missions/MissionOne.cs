@@ -9,13 +9,22 @@ using PixelCrushers.DialogueSystem;
 
 public class MissionOne : Mission
 {
-    public delegate void ChangeObjective(Objective nextObj);
-    public static event ChangeObjective onChangeObj;
+    //public delegate void ChangeObjective(Objective nextObj);
+    //public static event ChangeObjective onChangeObj;
+
+   // public delegate void ChangeObjectiveSide(SideObjective nextObj);
+    //public static event ChangeObjectiveSide onChangeObjSide;
+
+
+
     private GameObject secretary;
 
-    private Objective currentObjective;
+    //private Objective currentObjective;
+    //private SideObjective currentSideObjective;
+    
+    public Objective currentObjective;
 
-    public event Objective.CompleteObjective onCompleteObj;
+    public Objective currentSideObjective;
 
     public List<Dialogue> dialogues;
     public List<GameObject> notes;
@@ -70,65 +79,39 @@ public class MissionOne : Mission
     public GameObject manAtFirst;
 
     public GameObject firstMaleSecretary;
+
+    public List<GameObject> mainObjectives;
+
+    public List<GameObject> sideObjectives;
+
+    public int currentObjectiveIndex = 0;
+
+    public int currentSideObjectiveIndex = 0;
+
     public MissionOne()
     {
         objectives = new List<Objective>();
+
+        //sideObjectives = new List<Objective>();
+
         quizQuestions = new List<QuizQuestion>();
-        //objectives[0].checkIfComplete = this.x;
+        mainObjectives = new List<GameObject>();
+
+       
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        objectives.Add(new Objective("ﺍﺩﺧﻞ ﺍﻟﻤﺒﻨﻲ", 10, 10, false, this.checkFirstObjectiveComplete));
+        ///
 
-        objectives.Add(new Objective("ﺗﺤﺪﺙ ﺍﻟﻲ ﺍﻟﻤﻀﻴﻔﻪ", 10, 10, false, this.checkSecondObjectiveComplete));
+        //sideObjectives.Add(new SideObjective("", 10, 10, false, new Action<SideObjective>(checkFirstSideObjectiveComplete)));
 
-        objectives.Add(new Objective("ﺍﺿﻐﻂ I ﻟﻔﺘﺢ ﺍﻟﺘﺎﺑﻠﺖ ﺍﻟﺨﺎﺹ ﺑﻚ ﺛﻢ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻷﺳﺌﻠﺔ", 10, 10, false, this.checkThirdObjectiveComplete));
-        
-        objectives.Add(new Objective("ﺍﺟﺐ ﻋﻦ ﺍﻷﺳﺌﻠﺔ", 10, 10, false, this.checkFourthObjectiveComplete));
+        //sideObjectives.Add(new SideObjective("ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ tahC ﻭ ﺍﺑﺪﺃ ﻣﺤﺎﺩﺛﻪ ﻣﻊ ﺍﻟﻤﻀﻴﻔﻪ", 10, 10, false, this.checkSecondObjectiveComplete));
 
-        objectives.Add(new Objective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﺿﻐﻂ I ﻻﻏﻼﻕ ﺍﻟﺘﺎﺑﻠﺖ", 10, 10, false, this.checkFifthObjectiveComplete));
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // sideObjectives.Add(new SideObjective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻝ buH tnemtsevnI ﻣﺠﺪﺩﺍ", 10, 10, false, this.checkThirdObjectiveComplete));
 
-        objectives.Add(new Objective("ﺍﺫﻫﺐ ﺍﻟﻲ ﺍﻟﻤﻜﺎﺗﺐ", 10, 10, false, this.checkFirstObjectiveComplete));
+        //sideObjectives.Add(new SideObjective("ﺍﺿﻒ ﺗﻌﻠﻴﻘﺎ ﻋﻠﻲ ﺍﻟﺒﻮﺳﺖ ﺣﺎﻭﻝ ﺍﻥ ﺗﺨﺘﺎﺭ ﺍﻟﺘﻌﻠﻴﻖ ﺍﻷﺻﺢ", 10, 10, false, this.checkFourthObjectiveComplete));
 
-        objectives.Add(new Objective("ﺗﺤﺪﺙ ﻣﻊ ﺍﻟﻤﻮﻇﻒ ﻋﻦ ﺍﻷﺳﻬﻢ", 10, 10, false, this.checkSecondObjectiveComplete));
+        //sideObjectives.Add(new SideObjective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﺿﻐﻂ I ﻻﻏﻼﻕ ﺍﻟﺘﺎﺑﻠﺖ", 10, 10, false, this.checkFifthObjectiveComplete));
 
-        objectives.Add(new Objective("ﺍﺿﻐﻂ I ﻟﻔﺘﺢ ﺍﻟﺘﺎﺑﻠﺖ ﺍﻟﺨﺎﺹ ﺑﻚ ﺛﻢ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻷﺳﺌﻠﺔ", 10, 10, false, this.checkThirdObjectiveComplete));
-        
-        objectives.Add(new Objective("ﺍﺟﺐ ﻋﻦ ﺍﻷﺳﺌﻠﺔ", 20, 20, false, this.checkFourthObjectiveComplete));
-
-        objectives.Add(new Objective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﺿﻐﻂ I ﻻﻏﻼﻕ ﺍﻟﺘﺎﺑﻠﺖ", 10, 10, false, this.checkFifthObjectiveComplete));
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-        objectives.Add(new Objective("ﺍﺫﻫﺐ ﺍﻟﻲ ﺍﻟﻤﻮﻇﻒ ﺍﻟﺘﺎﻟﻲ", 10, 10, false, this.checkFirstObjectiveComplete));
-
-        objectives.Add(new Objective("ﺗﺤﺪﺙ ﻣﻊ ﺍﻟﻤﻮﻇﻒ ﻋﻦ ﺍﻟﺴﻨﺪﺍﺕ", 10, 10, false, this.checkSecondObjectiveComplete));
-
-        objectives.Add(new Objective("ﺍﺿﻐﻂ I ﻟﻔﺘﺢ ﺍﻟﺘﺎﺑﻠﺖ ﺍﻟﺨﺎﺹ ﺑﻚ ﺛﻢ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻷﺳﺌﻠﺔ", 10, 10, false, this.checkThirdObjectiveComplete));
-        
-        objectives.Add(new Objective("ﺍﺟﺐ ﻋﻦ ﺍﻷﺳﺌﻠﺔ", 30, 30, false, this.checkFourthObjectiveComplete));
-
-        objectives.Add(new Objective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﺿﻐﻂ I ﻻﻏﻼﻕ ﺍﻟﺘﺎﺑﻠﺖ", 10, 10, false, this.checkFifthObjectiveComplete));
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-        objectives.Add(new Objective("ﺍﺫﻫﺐ ﺍﻟﻲ ﺍﻟﺴﻤﺴﺎﺭ ﻓﻲ ﺍﻟﻄﺎﺑﻖ ﺍﻟﻌﻠﻮﻱ", 10, 10, false, this.checkFirstObjectiveComplete));
-
-        objectives.Add(new Objective("ﺗﺤﺪﺙ ﻣﻊ ﺍﻟﺴﻤﺴﺎﺭ", 10, 10, false, this.checkSecondObjectiveComplete));
-
-
-
-
-        objectives.Add(new Objective("ﺍﻓﺘﺢ ﺍﻟﻮﺭﻗﻪ ﺍﻣﺎﻣﻚ", 10, 10, false, this.checkIfNotePickedObjectiveComplete));
-
-
-
-
-        objectives.Add(new Objective("ﺍﺿﻐﻂ I ﻟﻔﺘﺢ ﺍﻟﺘﺎﺑﻠﺖ ﺍﻟﺨﺎﺹ ﺑﻚ ﺛﻢ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻷﺳﺌﻠﺔ", 10, 10, false, this.checkThirdObjectiveComplete));
-        
-        objectives.Add(new Objective("ﺍﺟﺐ ﻋﻦ ﺍﻷﺳﺌﻠﺔ", 40, 40, false, this.checkFourthObjectiveComplete));
-
-        objectives.Add(new Objective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﺿﻐﻂ I ﻻﻏﻼﻕ ﺍﻟﺘﺎﺑﻠﺖ", 10, 10, false, this.checkFifthObjectiveComplete));
-        
 
         quizQuestions.Add(new QuizQuestion(" ﻣﺎ ﻫﻲ ﻃﺒﻴﻌﻪ ﺍﻷﺳﺘﺜﻤﺎﺭ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ؟", new List<string>(){"ﺃﺳﺘﺜﻘﻤﺎﺭ ﻗﺼﻴﺮ ﺍﻷﺟﻞ", "ﺃﺳﺘﺜﻤﺎﺭ ﻃﻮﻳﻞ ﺍﻷﺟﻞ", "ﺃﺳﺘﺜﻤﺎﺭ ﻭﻫﻤﻲ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 1));
         quizQuestions.Add(new QuizQuestion("ﻣﻦ ﻣﻤﻴﺰﺍﺕ ﺍﻟﺒﻮﺭﺻﻪ ؟",  new List<string>(){"ﺳﻮﻕ ﻣﻨﻈﻤﺔ ﻟﺸﺮﺍﺀ ﻭ ﺑﻴﻊ ﺍﻷﻭﺭﺍﻕ ﺍﻟﻤﺎﻟﻴﺔ", "ﺳﻮﻕ ﻣﻨﻈﻤﺔ ﻟﺸﺮﺍﺀ ﻭ ﺑﻴﻊ ﺍﻟﺒﻀﺎﺋﻊ", "ﺳﻮﻕ ﺗﺪﺍﻭﻝ ﻭﻫﻤﻲ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
@@ -167,9 +150,12 @@ public class MissionOne : Mission
 
 
 
-        currentObjective = objectives[0].instance;
+        //currentObjective = objectives[0].instance;
+        //currentSideObjective = sideObjectives[0].instance;
 
-        Objective.onCompleteObj += checkObjComplete;
+        //Objective.onCompleteObj += checkObjComplete;
+
+        //SideObjective.onCompleteObj += checkObjComplete2;
 
         dialogues = new List<Dialogue>();
        
@@ -179,7 +165,8 @@ public class MissionOne : Mission
     void Start() {
         //cutscenePoints = new List<GameObject>();
         secretary = GameObject.FindGameObjectWithTag("Female NPC - Secretary");
-        onCompleteObj =  currentObjective.setOnCompleteObj(this);
+        //onCompleteObj =  currentObjective.setOnCompleteObj(this);
+        //onCompleteSideObj = currentSideObjective.setOnCompleteObj(this);
         var firstDialogueLines = new List<DialogueLine>();
         // firstDialogueLines.Add(new DialogueLine(secretary, "Reciptionist",0, "لا عليك فذلك من واجبنا يسعدنا نجاحك"));
         // firstDialogueLines.Add(new DialogueLine(GameObject.FindGameObjectWithTag("Player"), "Player",1, "اممم معذره لما كان كل ذلك الثناء قد كان كمان انجب طفلا للتو"));
@@ -211,84 +198,90 @@ public class MissionOne : Mission
             // newNote = new Note("First Note", "Lorem 1", notesParent.transform.GetChild(0).gameObject);
             //Debug.Log(notesParent.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Note>().content);   
             Note.onNotifyClosenessToNote += this.showOpenNoteToggle;
-            InvokeRepeating("checkObjectivesVoid", 1.0f, 0.5f);
         }
-    }
-
-    private void checkFirstObjectiveComplete(Objective obj){
-        Debug.Log("This: "+ this);
-        Debug.Log("obj: "+ obj.instance);
-        //Debug.Log(GameObject.FindGameObjectWithTag("Player").transform.position);
-        //Debug.Log(cutscenePoints[this.currentIndex].transform.position);
-        Debug.Log("x: "+ GameObject.FindGameObjectWithTag("Player").transform.position);
-        Debug.Log("y: "+ this.currentIndex);
-        if(Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position,cutscenePoints[this.currentIndex].gameObject.transform.position) <= 5){
-            if(onCompleteObj != null){
-                onCompleteObj();
-                obj.instance.isComplete = true;
-                Debug.Log("INNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
-                //canvas.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press E to Speak";
-                //canvas.transform.GetChild(2).gameObject.SetActive(true);
-                this.currentIndex++;
-            }
-            }
-    }
-    private void checkSecondObjectiveComplete(Objective obj){
-        if(!GameObject.FindObjectOfType<DialogueSystemController>().isConversationActive)
+        Debug.Log(gameObject.transform.GetChild(0).gameObject.transform.childCount);
+        for (var i = 0; i < gameObject.transform.GetChild(0).gameObject.transform.childCount; i++)
         {
-            if(onCompleteObj != null){
-                if (objectives.IndexOf(obj) == 16) {
-                    notesParent.transform.GetChild(2).gameObject.SetActive(true);
-                    notes.Add(notesParent.transform.GetChild(2).gameObject);
-                    notes[2].AddComponent<Note>();
-                    notes[2].GetComponent<Note>().title = "Your Code";
-                    notes[2].GetComponent<Note>().content = "YXWQEQW920000232";
-                }
-                onCompleteObj();
-                obj.instance.isComplete = true;
-                this.activeCutScene = null;
-                //this.prepareFirstQuiz();
-                quizAppButton.onClick.AddListener(delegate {this.quizAppButtonClicked(obj); });
-                //Debug.Log("dONE 2");
-            }
+            //Debug.Log(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
+            mainObjectives.Add(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
         }
-    }
-    void quizAppButtonClicked(Objective obj){
-        currentObjective.checkIfComplete(new Objective());
-    }
-    private void checkThirdObjectiveComplete(Objective obj){
-        if(String.IsNullOrEmpty(obj.title) && inventoryManager.transform.GetChild(0).gameObject.active && GameObject.FindObjectOfType<InventoryManager>().finishedQuiz == false){
-            if(onCompleteObj != null){
-                onCompleteObj();
-                currentObjective.isComplete = true;
-                //Debug.Log("dONE 2");
-                quizAppButton.onClick.RemoveListener(delegate {this.quizAppButtonClicked(obj); });
-            }
+        currentObjective = mainObjectives[currentObjectiveIndex].GetComponent<Objective>();
+        GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest(currentObjective);
+
+        for (var i = 0; i < gameObject.transform.GetChild(1).gameObject.transform.childCount; i++)
+        {
+            //Debug.Log(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
+            sideObjectives.Add(gameObject.transform.GetChild(1).gameObject.transform.GetChild(i).gameObject);
         }
+        currentSideObjective = sideObjectives[currentSideObjectiveIndex].GetComponent<Objective>();
+        GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest2(currentSideObjective);
+
+    }
+    private void checkFirstSideObjectiveComplete(SideObjective obj)
+    {
         
     }
-    private void checkFourthObjectiveComplete(Objective obj){
-        if(GameObject.FindObjectOfType<InventoryManager>().checkForObjForth()){
-            if(onCompleteObj != null){
-                onCompleteObj();
-                obj.instance.isComplete = true;
-                // quizQuestions = 
-                //Debug.Log("dONE 2");
-            }
+
+    
+    public void changeMainObjective(GameObject current) {
+        Debug.Log(currentObjectiveIndex);
+        //refreshObjectives();
+
+        if (currentObjectiveIndex < mainObjectives.Count && current.GetComponent<Objective>().isComplete) {
+        var nextObj = mainObjectives[currentObjectiveIndex + 1];
+        if (nextObj != null) {
+            GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest(nextObj.GetComponent<Objective>());
+            Destroy(mainObjectives[currentObjectiveIndex].gameObject);
+            mainObjectives[currentObjectiveIndex + 1].gameObject.SetActive(true);
+            currentObjective = nextObj.GetComponent<Objective>();
+            currentObjectiveIndex++;
+        }
+        
         }
     }
-    private void checkFifthObjectiveComplete(Objective obj){
-        if(!inventoryManager.transform.GetChild(0).gameObject.active){
-            if(onCompleteObj != null){
-                onCompleteObj();
-                obj.instance.isComplete = true;
-                //Debug.Log("dONE 2");
+    public void changeSideObjective(GameObject current)
+    {
+        Debug.Log(currentSideObjectiveIndex);
+        //refreshObjectives();
+
+        if (currentSideObjectiveIndex < sideObjectives.Count && current.GetComponent<Objective>().isComplete)
+        {
+            var nextObj = sideObjectives[currentSideObjectiveIndex + 1];
+            if (nextObj != null)
+            {
+                GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest2(nextObj.GetComponent<Objective>());
+                Destroy(sideObjectives[currentSideObjectiveIndex].gameObject);
+                sideObjectives[currentSideObjectiveIndex + 1].gameObject.SetActive(true);
+                currentSideObjective = nextObj.GetComponent<Objective>();
+                currentSideObjectiveIndex++;
             }
-            
+
         }
     }
 
-    private void checkIfNotePickedObjectiveComplete(Objective obj)
+    /*public void refreshObjectives() {
+        for (var i = 0; i < gameObject.transform.GetChild(0).gameObject.transform.childCount; i++)
+        {
+            if () { }
+            //Debug.Log(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
+            mainObjectives.Add(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
+        }
+    }*/
+
+    private void checkFirstObjectiveComplete(Objective obj){
+        
+    }
+    /*public void quizAppButtonClicked(Objective obj){
+        if (currentObjective.gameObject.GetComponent<ThirdObjective>() != null) {
+            currentObjective.gameObject.GetComponent<ThirdObjective>().completeObjective(new Objective());
+            quizAppButton.onClick.RemoveListener(delegate { this.quizAppButtonClicked(new Objective()); });
+        }
+    }*/
+    /*private void checkFifthObjectiveComplete(Objective obj){
+        
+    }*/
+
+   /* private void checkIfNotePickedObjectiveComplete(Objective obj)
     {
         if (inventoryManager.GetComponent<InventoryManager>().notes.Contains(notes[2]))
         {
@@ -300,7 +293,7 @@ public class MissionOne : Mission
             }
 
         }
-    }
+    }*/
 
     void FixedUpdate(){
         if(this.activeNote != null && Input.GetKeyDown(KeyCode.R)){
@@ -360,19 +353,6 @@ public class MissionOne : Mission
         }
         // StartCoroutine(checkObjectivesIEnum());
     }
-    void checkObjectivesVoid(){
-        //yield return new WaitForSeconds(1f);
-        // Debug.Log(objectives.IndexOf(this.currentObjective));
-        // Debug.Log(currentObjective.isComplete);
-        currentObjective.checkIfComplete(this.currentObjective);
-        if(currentObjective.isComplete){
-            checkObjComplete();
-            onCompleteObj =  currentObjective.setOnCompleteObj(this);
-        }else {
-
-        }
-
-    }
     void OnPlayableDirectorStarted(PlayableDirector aDirector)
     {
         //Debug.Log("Being Played");
@@ -397,8 +377,8 @@ public class MissionOne : Mission
             audioSrc.GetComponent<AudioSource>().Play();
         }
         this.activeNote.GetComponent<Note>().disableEffects();
-        canvas.transform.GetChild(2).gameObject.SetActive(false);
-        canvas.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
         notesCanvas.gameObject.SetActive(true);
         var noteInInventory = Instantiate(notePrefab ,new Vector3(0, 0, 0), Quaternion.identity);
 
@@ -422,8 +402,8 @@ public class MissionOne : Mission
     void showOpenNoteToggle(GameObject nearNote){
         audioSrc.GetComponent<AudioSource>().clip =  null;
         isCloseToNote = true;
-        canvas.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press R to Read Note";
-        canvas.transform.GetChild(2).gameObject.SetActive(true);
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press R to Read Note";
+        canvas.transform.GetChild(1).gameObject.SetActive(true);
         noteTitle.text = nearNote.GetComponent<Note>().title;
         noteContent.text = nearNote.GetComponent<Note>().content;
         this.activeNote = nearNote;
@@ -436,8 +416,8 @@ public class MissionOne : Mission
             audioSrc.GetComponent<AudioSource>().Play();
         }
         this.activeNewspaper.GetComponent<Newspaper>().disableEffects();
-        canvas.transform.GetChild(2).gameObject.SetActive(false);
-        canvas.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
         newsPaperCanvas.gameObject.SetActive(true);
         var newspaperInInventory = Instantiate(newsPaperPrefab ,new Vector3(0, 0, 0), Quaternion.identity);
 
@@ -458,42 +438,11 @@ public class MissionOne : Mission
     void showOpenNewspaperToggle(GameObject nearNewsPaper){
         audioSrc.GetComponent<AudioSource>().clip =  null;
         isCloseToNewspaper = true;
-        canvas.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press N to View News";
-        canvas.transform.GetChild(2).gameObject.SetActive(true);
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press N to View News";
+        canvas.transform.GetChild(1).gameObject.SetActive(true);
         newsPaperImage.GetComponent<Image>().sprite = nearNewsPaper.gameObject.GetComponent<Newspaper>().sprite;
         //noteContent.text = nearNewsPaper.GetComponent<Note>().content;
         this.activeNewspaper = nearNewsPaper;
         nearNewsPaper.GetComponent<Newspaper>().isRead = true;
-    }
-    void checkObjComplete(){
-        
-        if(onChangeObj != null){
-            if(currentObjective.isComplete){
-            if(objectives.IndexOf(this.currentObjective) < objectives.Count){
-                this.currentObjective = objectives[objectives.IndexOf(this.currentObjective) + 1];
-                objectives[objectives.IndexOf(this.currentObjective) - 1] = null;
-                GC.Collect();
-                onChangeObj(currentObjective);
-            }else {
-                onChangeObj(new Objective());
-            }
-            }
-            // Debug.Log(currentIndex + " " + objectives.Count);
-            //     if(currentIndex < objectives.Count - 1){
-            //         currentIndex++;
-            //         currentObjective = objectives[currentIndex];
-            //         //objectives.Remove(objectives[objectives.IndexOf(currentObjective) - 1]);
-            //         onChangeObj(currentObjective);
-            //     }else if(currentIndex == objectives.Count - 1) {
-            //         currentObjective = objectives[objectives.Count - 1];
-            //         onChangeObj(new Objective());
-            //          //onChangeObj(objectives[0]);
-            //     }else {
-
-            //         Debug.Log("Done");
-            //         onChangeObj(new Objective());
-            //     }
-            
-            }
     }
 }
