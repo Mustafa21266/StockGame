@@ -141,6 +141,11 @@
     <Compile Include="Assets\Scripts\TextFixer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\StockPurchase.cs" />
+    <Compile Include="Assets\Scripts\Vehicle.cs" />
+    <Compile Include="Assets\Scripts\VehicleCollisionDetection.cs" />
+    <Compile Include="Assets\Scripts\Missions\MissionTwo.cs" />
+    <Compile Include="Assets\Scripts\Missions\MissionThree.cs" />
+    <Compile Include="Assets\Scripts\Missions\MissionFour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -106,17 +106,38 @@ IEnumerator moveNPC(){
         targetTemp = pathTargets[currentTargetIndex];
         if(!isThere()){
             move();
+
         }else {
             //yield return new WaitForSeconds(10f);
             //currentTargetIndex = currentTargetIndex + 1;
             if(anim.GetBool("isWalking")){
                 anim.SetBool("isWalking", false);
-                if(gameObject.GetComponent<AudioSource>().isPlaying){
+                    
+                    if (gameObject.GetComponent<AudioSource>().isPlaying){
                     gameObject.GetComponent<AudioSource>().Stop();
                 }
-                yield return new WaitForSeconds(10f);      
+                    System.Random rand = new System.Random();
+                    var moveOrNot = rand.Next(0, 2);
+                    Debug.Log(moveOrNot);
+                    if (moveOrNot == 0)
+                    {
+
+                    }
+                    else
+                    {
+                            anim.Play("Talking_On_Phone_Idle");
+                            yield return new WaitForSeconds(50f);
+                            anim.Play("Idle");
+                        if (anim.GetBool("isTalkingOnPhone"))
+                        {
+                            //anim.SetBool("isTalkingOnPhone", true);
+                            yield return new WaitForSeconds(50f);
+                        }
+                    }
+                    yield return new WaitForSeconds(10f);      
                 currentTargetIndex = currentTargetIndex == pathTargets.Count - 1 ? 0 : currentTargetIndex + 1;
-        }
+                    anim.SetBool("isTalkingOnPhone", false);
+                }
         }
     }else {
         currentTargetIndex = 0;
@@ -169,6 +190,7 @@ IEnumerator moveNPC(){
         return Vector3.Distance(transform.position,targetTemp.transform.position) <= 2 ? true : false;
     }
     void move(){
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Talking_On_Phone_Idle")) { 
         anim.SetBool("isWalking", true);
         gameObject.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/NPC_Walking_Audio", typeof(AudioClip));
         if(!gameObject.GetComponent<AudioSource>().isPlaying){
@@ -185,5 +207,6 @@ IEnumerator moveNPC(){
         rb.MoveRotation(targetRotation);
         // targetRotation.x = 0f;
         //transform.Rotate(Vector3.up * 100f * Time.deltaTime);
+        }
     }
 }

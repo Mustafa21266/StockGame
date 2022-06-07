@@ -17,8 +17,26 @@ public class ThirdObjective : MonoBehaviour
         {
         if (GameObject.FindObjectOfType<InventoryManager>().gameObject.transform.GetChild(0).gameObject.active && quizPanel.gameObject.active)
         {
-            gameObject.GetComponent<Objective>().isComplete = true;
-            gameObject.transform.parent.parent.GetComponent<MissionOne>().changeMainObjective(gameObject);
+            if (gameObject.transform.parent.parent.TryGetComponent(out MissionOne m1))
+            {
+                gameObject.GetComponent<Objective>().isComplete = true;
+                gameObject.transform.parent.parent.GetComponent<MissionOne>().changeMainObjective(gameObject);
+            }
+            else if (gameObject.transform.parent.parent.TryGetComponent(out MissionTwo m2))
+            {
+                gameObject.GetComponent<Objective>().isComplete = true;
+                gameObject.transform.parent.parent.GetComponent<MissionTwo>().changeMainObjective(gameObject);
+            }
+            else if (gameObject.transform.parent.parent.TryGetComponent(out MissionThree m3))
+            {
+                gameObject.GetComponent<Objective>().isComplete = true;
+                gameObject.transform.parent.parent.GetComponent<MissionThree>().changeMainObjective(gameObject);
+            }
+            else if (gameObject.transform.parent.parent.TryGetComponent(out MissionFour m4))
+            {
+                gameObject.GetComponent<Objective>().isComplete = true;
+                gameObject.transform.parent.parent.GetComponent<MissionFour>().changeMainObjective(gameObject);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ TagManager:
   - Subtitles - Avatar
   - Cash Amount
   - Minimap
+  - Vehicle
   layers:
   - Default
   - TransparentFX

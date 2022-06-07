@@ -11,6 +11,9 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
 
     private float xRotation = 0f;
+
+    public GameObject promptPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +25,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (!GameObject.FindObjectOfType<DialogueSystemController>().isConversationActive) { 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+
+        if (!GameObject.FindObjectOfType<DialogueSystemController>().isConversationActive && !promptPanel.gameObject.active) { 
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;

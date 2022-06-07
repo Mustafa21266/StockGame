@@ -540,8 +540,24 @@ public class InventoryManager : MonoBehaviour
             }
             quizQuestions = new List<QuizQuestion>();
             yield return new WaitForSeconds(10f);
-            GameObject.FindObjectOfType<MissionOne>().quizQuestions.RemoveRange(0,5);
-            firstMissionChallengeParent.transform.GetChild(6).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "";
+        if (GameObject.FindObjectOfType<MissionOne>() != null)
+            {
+            GameObject.FindObjectOfType<MissionOne>().quizQuestions.GetRange(0, 5);
+        }
+        else if (GameObject.FindObjectOfType<MissionTwo>() != null)
+        {
+            GameObject.FindObjectOfType<MissionTwo>().quizQuestions.GetRange(0, 5);
+        }
+        else if (GameObject.FindObjectOfType<MissionThree>() != null)
+        {
+            GameObject.FindObjectOfType<MissionThree>().quizQuestions.GetRange(0, 5);
+        }
+        else if (GameObject.FindObjectOfType<MissionFour>() != null)
+        {
+            GameObject.FindObjectOfType<MissionFour>().quizQuestions.GetRange(0, 5);
+        }
+
+        firstMissionChallengeParent.transform.GetChild(6).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "";
             firstMissionChallengeParent.transform.GetChild(6).gameObject.SetActive(false);
             for(var i = 0; i < 6; i++){
                 firstMissionChallengeParent.transform.GetChild(i).gameObject.SetActive(true);
@@ -561,8 +577,25 @@ public class InventoryManager : MonoBehaviour
         if(currentQuestionIndex != 0){
             yield return new WaitForSeconds(2f);
         }
-        quizQuestions = GameObject.FindObjectOfType<MissionOne>().quizQuestions.GetRange(0,5);
-        for(var i = 2 ; i < 6; i++){
+        if (GameObject.FindObjectOfType<MissionOne>() != null)
+        {
+            quizQuestions = GameObject.FindObjectOfType<MissionOne>().quizQuestions.GetRange(0, 5);
+        }
+        else if (GameObject.FindObjectOfType<MissionTwo>() != null)
+        {
+            quizQuestions = GameObject.FindObjectOfType<MissionTwo>().quizQuestions.GetRange(0, 5);
+        }
+        else if (GameObject.FindObjectOfType<MissionThree>() != null)
+        {
+            quizQuestions = GameObject.FindObjectOfType<MissionThree>().quizQuestions.GetRange(0, 5);
+        }
+        else if (GameObject.FindObjectOfType<MissionFour>() != null)
+        {
+            quizQuestions = GameObject.FindObjectOfType<MissionFour>().quizQuestions.GetRange(0, 5);
+        }
+
+        //quizQuestions = GameObject.FindObjectOfType<MissionOne>().quizQuestions.GetRange(0,5);
+        for (var i = 2 ; i < 6; i++){
             firstMissionChallengeParent.transform.GetChild(i).GetComponent<Image>().color = new Color(1,1,1,0.6f);
             firstMissionChallengeParent.transform.GetChild(i).GetComponent<Button>().enabled = true;
         }

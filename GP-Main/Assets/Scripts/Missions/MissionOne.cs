@@ -119,37 +119,6 @@ public class MissionOne : Mission
         quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻲ ﻣﺤﺘﻮﻳﺎﺕ ﺍﻷﻭﺭﺍﻕ ﺍﻟﻤﺎﻟﻴﺔ ؟",  new List<string>(){"ﺍﻷﺳﻬﻢ", "ﺍﻟﺴﻨﺪﺍﺕ", "ﻭﺛﺎﺋﻖ ﺻﻨﺎﺩﻳﻖ ﺍﻟﻤﺆﺷﺮ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 3));
         quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ ﺍﻟﻤﺼﻄﻠﺢ ﺍﻟﺬﻱ ﻳﻄﻠﻖ ﻋﻠﻲ ﺍﻷﺳﻬﻢ ﺍﻭ ﺍﻟﺴﻨﺪﺍﺕ ﻋﻨﺪﻣﺎ ﺗﻘﺮﺭ ﺍﻟﺸﺮﻛﺔ ﺑﻴﻌﻬﻢ ﻓﻲ ﺳﻮﻕ ﺍﻟﺒﻮﺭﺻﺔ ؟",  new List<string>(){"ﺍﻟﻄﺮﺡ", "ﺍﻷﺭﺑﺎﺡ", "ﺍﻟﻤﺆﺷﺮ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
 
-
-
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻲ ﺍﻷﺷﻴﺎﺀ ﺍﻟﺘﻲ ﺗﻘﻮﻡ ﺑﻬﺎ ﺍﻟﺸﺮﻛﺎﺕ ﻟﻠﺤﺼﻮﻝ ﻋﻠﻲ ﺗﻤﻮﻳﻞ ؟", new List<string>(){"ﻣﻦ ﺧﻼﻝ ﺑﻴﻊ ﺍﻷﺳﻬﻢ", "ﻣﻦ ﺧﻼﻝ ﺍﻷﻗﺘﺮﺍﺽ", "ﻛﻞ ﻣﻦ  ﺃ & ﺏ","ﻣﻦ ﺧﻼﻝ ﺯﻳﺎﺩﻩ ﺍﻷﻧﺘﺎﺝ"}, 1));
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻲ ﺍﻟﻔﺘﺮﺍﺕ ﻟﺮﺩ ﻗﻴﻤﻪ ﺍﻟﻔﺎﺋﺪﻩ ﺍﻟﺨﺎﺻﻪ ﺑﺎﻟﺴﻨﺪﺍﺕ ؟",  new List<string>(){"3 ﺃﺷﻬﺮ", "6 ﺃﺷﻬﺮ", "21 ﺍﺷﻬﺮ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 3));
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ ﺍﻷﻗﻞ ﺧﻄﻮﺭﻩ ﻓﻲ ﺍﻷﺳﺘﺜﻤﺎﺭ ؟",  new List<string>(){"ﺍﻷﺳﺘﺜﻤﺎﺭ ﻓﻲ ﺍﻷﺳﻬﻢ", "ﺍﻷﺳﺘﺜﻤﺎﺭ ﻓﻲ ﺍﻟﺴﻨﺪﺍﺕ", "ﺍﻻﺳﺘﺜﻤﺎﺭ ﻓﻲ ﻭﺛﺎﺋﻖ ﺻﻨﺎﺩﻳﻖ ﺍﻟﻤﺆﺷﺮ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 1));
-        quizQuestions.Add(new QuizQuestion("ﻛﻴﻔﻴﻪ ﺷﺮﺍﺀ ﺍﻷﺳﻬﻢ ﺃﻭ ﺍﻟﺴﻨﺪﺍﺕ ؟",  new List<string>(){"ﻣﻦ ﺷﺮﻛﻪ ﻭﺳﺎﻃﻪ ﻣﺎﻟﻴﻪ", "ﻣﻦ ﺧﻼﻝ ﺷﺮﻛﺎﺀ", "ﻣﻦ ﺍﻟﺒﻮﺭﺻﻪ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
-        quizQuestions.Add(new QuizQuestion("ﺍﻟﺨﺼﺎﺋﺺ ﺍﻟﺘﻲ ﻣﻦ ﺧﻼﻟﻬﺎ ﺗﺘﻤﻜﻦ ﻣﻦ ﺃﺧﺘﻴﺎﺭ ﺷﺮﻛﻪ ﺍﻟﺴﻤﺴﺮﻩ ؟",  new List<string>(){"ﻟﺪﻳﻬﺎ ﺗﺪﺍﻭﻝ ﺍﻟﻜﺘﺮﻭﻧﻲ", "ﻟﺪﻳﻬﺎ ﺧﺪﻣﻪ ﻋﻤﻼﺀ ﻭ ﺳﺮﻋﻪ ﻓﻲ ﺍﻟﺮﺩ", "ﺗﻜﻮﻥ ﺍﻟﻌﻤﻮﻟﺔ ﺍﻟﺨﺎﺻﻪ ﺑﻬﺎ ﻓﻲ ﺍﻟﻤﺘﻮﺳﻂ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 3));
-
-
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ ﻣﻔﻬﻮﻡ ﺍﻟﻤﺆﺷﺮ ؟", new List<string>(){"ﻫﻮ ﻣﺘﻮﺳﻂ ﺍﺳﻌﺎﺭ ﺍﺳﻬﻢ ﺍﻟﺸﺮﻛﺎﺕ ﺍﻟﻤﻜﻮﻧﺔ ﻟﻪ", "ﻫﻮ ﺍﻟﺤﺪ ﺍﻷﺩﻧﻲ ﻟﺴﻌﺮ ﺍﺳﻬﻢ ﺍﻟﺸﺮﻛﺎﺕ ﺍﻟﻤﻜﻮﻧﺔ ﻟﻪ", "ﻫﻮ ﺍﻟﺤﺪ ﺍﻷﻗﺼﻲ ﻟﺴﻌﺮ ﺍﺳﻬﻢ ﺍﻟﺸﺮﻛﺎﺕ ﺍﻟﻤﻜﻮﻧﺔ ﻟﻪ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ ﻣﺆﺷﺮ 03 XGE ؟",  new List<string>(){"ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﻋﻠﻰ 03 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ", "ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﻋﻠﻰ 02 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ", "ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﺩﻧﻲ 03 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ","ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﺩﻧﻲ 02 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ"}, 0));
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ  ﻣﻔﻬﻮﻡ ﺳﻌﺮ ﺍﻻﻏﻼﻕ ؟",  new List<string>(){"ﻫﻮ ﺍﻟﺴﻌﺮ ﺍﻟﻨﻬﺎﺋﻲ ﺍﻟﺬﻱ ﻳﺘﻢ ﺗﺪﺍﻭﻟﻪ ﺧﻼﻝ ﺳﺎﻋﺎﺕ ﺍﻟﺴﻮﻕ ﺍﻟﻌﺎﺩﻳﺔ", "ﻫﻮ ﺍﻟﺴﻌﺮ ﺍﻟﻤﺒﺪﺃﻱ ﺍﻟﺬﻱ ﻳﺘﻢ ﺗﺪﺍﻭﻟﻪ ﺧﻼﻝ ﺳﺎﻋﺎﺕ ﺍﻟﺴﻮﻕ ﺍﻟﻌﺎﺩﻳﺔ", "ﻫﻮ ﺍﻟﺴﻌﺮ ﺍﻟﻤﺘﻮﺳﻂ ﺍﻟﺬﻱ ﻳﺘﻢ ﺗﺪﺍﻭﻟﻪ ﺧﻼﻝ ﺳﺎﻋﺎﺕ ﺍﻟﺴﻮﻕ ﺍﻟﻌﺎﺩﻳﺔ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
-        quizQuestions.Add(new QuizQuestion("ﻛﻴﻔﻴﻪ ﺍﻟﺤﺼﻮﻝ ﻋﻠﻲ ﺍﻟﻜﻮﺩ ﺍﻟﺨﺎﺹ ﺑﺎﻟﺘﺪﺍﻭﻝ ؟",  new List<string>(){"ﻳﺘﻢ ﺍﻟﺤﺼﻮﻝ ﻋﻠﻴﻪ ﻣﻦ ﺧﻼﻝ ﺍﻟﺘﻌﺎﻗﺪ ﻣﻊ ﺍﻱ ﺷﺮﻛﻪ ﻭﺳﺎﻃﺔ ﻣﺎﻟﻴﻪ", "ﻳﺘﻢ ﺍﻟﺤﺼﻮﻝ ﻋﻠﻴﻪ ﺑﺪﻭﻥ ﺍﻱ ﺷﺮﻭﻁ ﻣﺴﺒﻘﻪ", "ﻳﺘﻢ ﺍﻟﺤﺼﻮﻝ ﻋﻠﻴﻪ ﺑﻤﺠﺮﺩ ﺩﺧﻮﻟﻚ ﺍﻟﺒﻮﺭﺻﻪ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
-        quizQuestions.Add(new QuizQuestion("ﻛﻴﻒ ﺗﻜﻮﻥ ﺣﻤﺎﻳﻪ ﺍﻣﻮﺍﻟﻚ ﻣﻦ ﺍﻟﻨﺼﺐ ﻭ ﺍﻻﺣﺘﻴﺎﻝ ؟",  new List<string>(){"ﻣﻦ ﺧﻼﻝ ﺻﻨﺪﻭﻕ ﺣﻤﺎﻳﻪ ﺍﻟﻤﺴﺘﺜﻤﺮ ﺑﻴﻌﻮﺿﻚ ﻭﻓﻘﺎ ﻟﻠﻘﻮﺍﻋﺪ ﺍﻟﻤﻌﻤﻮﻝ ﺑﻬﺎ", "ﻻ ﻳﻮﺟﺪ ﺍﻱ ﺣﻤﺎﻳﺎﺕ ﺍﻭ ﺿﻤﺎﻧﺎﺕ", "ﻻ ﻳﻮﺟﺪ ﻧﺼﺐ ﺍﻭ ﺍﺣﺘﻴﺎﻝ ﻣﻦ ﺍﻷﺳﺎﺱ","ﻛﻞ ﻣﻦ ﺏ ﻭ ﺝ"}, 0));
-
-
-
-
-
-        quizQuestions.Add(new QuizQuestion("ﻛﻴﻒ ﻳﻜﻮﻥ ﺍﺧﺘﻴﺎﺭ ﺍﻟﺴﻤﺴﺎﺭ ؟", new List<string>(){"ﺍﻥ ﻳﻜﻮﻥ ﻣﺴﺠﻞ ﺣﻴﺚ ﺍﻥ ﺍﻟﻬﻴﺌﺔ ﺍﻟﻌﺎﻣﺔ ﻟﻠﺮﻗﺎﺑﺔ ﺍﻟﻤﺎﻟﻴﺔ ﻭﺍﻟﺒﻮﺭﺻﺔ ﺍﻟﻤﺼﺮﻳﺔ", "ﺍﻥ ﻳﻜﻮﻥ ﻣﺴﺠﻞ ﻓﻲ ﺍﻟﻬﻴﺌﺔ ﺍﻟﻌﺎﻣﺔ ﻟﻠﺮﻗﺎﺑﺔ ﻋﻠﻲ ﺍﻟﺠﻮﺩﻩ", "ﺍﻥ ﻳﻜﻮﻥ ﺳﻴﺊ ﺍﻟﺴﻤﻌﻪ","ﻛﻞ ﻣﻦ ﺃ ﻭ ﺏ"}, 0));
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻣﻴﺰﻩ ﺍﻥ ﻳﻜﻮﻥ ﺍﻟﺴﻤﺴﺎﺭ ﻣﺴﺠﻞ ﻓﻲ ﺍﻟﻬﻴﺌﻪ ﺍﻟﻌﺎﻣﻪ ﻟﻠﺮﻗﺎﺑﻪ ﺍﻟﻤﺎﻟﻴﻪ ؟",  new List<string>(){"ﺍﻥ ﺍﻟﻬﻴﺌﺔ ﺍﻟﻌﺎﻣﺔ ﻟﻠﺮﻗﺎﺑﺔ ﺍﻟﻤﺎﻟﻴﺔ ﻭﺍﻟﺒﻮﺭﺻﺔ ﺍﻟﻤﺼﺮﻳﺔ ﺑﺘﺤﺘﻔﻆ ﺑﺴﺠﻼﺕ ﺗﺎﺭﻳﺨﻴﻪ ﻟﻜﻞ ﻣﻨﻔﺬﻱ ﺷﺮﻛﺎﺕ ﺍﻟﺴﻤﺴﺮﺓ", "ﺍﻥ ﻳﻜﻮﻥ ﻣﻦ ﺍﻟﺴﻬﻞ ﺗﺘﺒﻊ ﺍﻧﺠﺎﺯﺍﺗﻪ", "ﺍﻥ ﻳﻜﻮﻥ ﻣﻦ ﺍﻟﺴﻬﻞ ﻋﻠﻲ ﺍﻟﺴﻤﺴﺎﺭ ﺍﻳﺠﺎﺩﻩ ﻋﻨﺪ ﺣﺪﻭﺙ ﺍﻱ ﻣﺸﻜﻠﻪ","ﻛﻞ ﻣﺎ ﺳﺒﻖ"}, 0));
-        
-        quizQuestions.Add(new QuizQuestion("ﻧﻘﺎﻁ ﺍﻟﺘﻔﺮﻳﻖ ﺑﻴﻦ ﺍﺛﻨﻴﻦ ﻣﻦ ﺍﻟﻤﻨﻔﺬﻳﻦ ؟",  new List<string>(){"ﻃﻠﺐ ﺍﻟﻜﺘﻴﺐ ﺍﻟﺨﺎﺹ ﺑﻪ", "ﺍﻟﺴﺆﺍﻝ ﻋﻦ ﺍﻟﻌﻤﻮﻟﻪ ﻭ ﺍﻟﻤﻔﺎﺿﻠﻪ ﻣﻦ ﺧﻼﻟﻬﺎ", "ﺍﻟﺴﺆﺍﻝ ﻋﻦ ﻋﻼﻗﺘﻪ ﺍﻷﺟﺘﻤﺎﻋﻴﻪ","ﻛﻞ ﻣﻦ ﺃ ﻭ ﺏ"}, 3));
-        
-        quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻲ ﺍﺳﺒﺎﺏ ﺍﻟﻤﺸﺎﻛﻞ ﺑﻴﻦ ﺍﻟﻤﺴﺘﺜﻤﺮ ﻭ ﺍﻟﺴﻤﺴﺎﺭ ؟",  new List<string>(){"ﺑﺴﺒﺐ ﺍﻥ ﺗﻮﻗﻌﺎﺕ ﺍﻟﻤﺴﺘﺜﻤﺮ ﺗﻜﻮﻥ ﻏﻴﺮ ﻭﺍﻗﻌﻴﻪ", "ﺍﻟﻌﻤﻠﻴﺎﺕ ﺍﻟﺘﻲ ﻳﻤﻜﻦ ﺍﻥ ﺗﺘﻢ ﺑﺪﻭﻥ ﺍﺫﻥ ﻣﺴﺒﻖ ﻣﻦ ﺍﻟﻤﺴﺘﺜﻤﺮ", "ﺑﺴﺒﺐ ﻋﺪﻡ ﺗﺒﺎﺩﻝ ﺍﻟﺜﻘﻪ ﻭ ﺍﻟﻤﻌﻠﻮﻣﺎﺕ ﻓﻴﻤﺎ ﺑﻴﻨﻬﻤﺎ","ﻛﻞ ﻣﻦ ﺃ ﻭ ﺏ"}, 3));
-        
-        quizQuestions.Add(new QuizQuestion("ﻣﻦ ﻣﻤﻴﺰﺍﺕ ﺍﻷﺳﺘﺜﻤﺎﺭ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ ؟",  new List<string>(){"ﺍﺭﺑﺎﺡ ﺍﻟﺸﺮﻛﻪ ﺗﻮﺯﻉ ﻋﻠﻲ ﻣﺴﺎﻫﻤﻴﻬﺎ ﻓﻲ ﺻﻮﺭﻩ ﻛﻮﺑﻮﻥ", "ﺍﻟﻌﺎﺋﺪ ﺍﻟﺮﺃﺱ ﺍﻟﻤﺎﻟﻲ ﻭ ﻫﻮ ﺍﻟﻔﺮﻕ ﺑﻴﻦ ﺳﻌﺮ ﺍﻟﺒﻴﻊ ﻭ ﺳﻌﺮ ﺷﺮﺍﺀ ﺍﻟﺴﻬﻢ", "ﺑﺴﺒﺐ ﺳﻬﻮﻟﻪ ﺍﻟﻤﻜﺴﺐ","ﻛﻞ ﻣﻦ أ ﻭ ب"}, 3));
-
-
-
-
         //currentObjective = objectives[0].instance;
         //currentSideObjective = sideObjectives[0].instance;
 
@@ -227,16 +196,18 @@ public class MissionOne : Mission
         Debug.Log(currentObjectiveIndex);
         //refreshObjectives();
 
-        if (currentObjectiveIndex < mainObjectives.Count && current.GetComponent<Objective>().isComplete) {
-        var nextObj = mainObjectives[currentObjectiveIndex + 1];
-        if (nextObj != null) {
-            GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest(nextObj.GetComponent<Objective>());
-            Destroy(mainObjectives[currentObjectiveIndex].gameObject);
-            mainObjectives[currentObjectiveIndex + 1].gameObject.SetActive(true);
-            currentObjective = nextObj.GetComponent<Objective>();
-            currentObjectiveIndex++;
-        }
-        
+        if (currentObjectiveIndex < mainObjectives.Count -1 && current.GetComponent<Objective>().isComplete) {
+            var nextObj = mainObjectives[currentObjectiveIndex + 1];
+            if (nextObj != null) {
+                GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest(nextObj.GetComponent<Objective>());
+                Destroy(mainObjectives[currentObjectiveIndex].gameObject);
+                mainObjectives[currentObjectiveIndex + 1].gameObject.SetActive(true);
+                currentObjective = nextObj.GetComponent<Objective>();
+                currentObjectiveIndex++;
+            }
+
+        } else if (currentObjectiveIndex == mainObjectives.Count - 1 && current.GetComponent<Objective>().isComplete) {
+            GameObject.FindObjectOfType<MissionManager>().updateObjectiveTest(new Objective() { title = "Finished" });
         }
     }
     public void changeSideObjective(GameObject current)
@@ -258,43 +229,6 @@ public class MissionOne : Mission
 
         }
     }
-
-    /*public void refreshObjectives() {
-        for (var i = 0; i < gameObject.transform.GetChild(0).gameObject.transform.childCount; i++)
-        {
-            if () { }
-            //Debug.Log(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
-            mainObjectives.Add(gameObject.transform.GetChild(0).gameObject.transform.GetChild(i).gameObject);
-        }
-    }*/
-
-    private void checkFirstObjectiveComplete(Objective obj){
-        
-    }
-    /*public void quizAppButtonClicked(Objective obj){
-        if (currentObjective.gameObject.GetComponent<ThirdObjective>() != null) {
-            currentObjective.gameObject.GetComponent<ThirdObjective>().completeObjective(new Objective());
-            quizAppButton.onClick.RemoveListener(delegate { this.quizAppButtonClicked(new Objective()); });
-        }
-    }*/
-    /*private void checkFifthObjectiveComplete(Objective obj){
-        
-    }*/
-
-   /* private void checkIfNotePickedObjectiveComplete(Objective obj)
-    {
-        if (inventoryManager.GetComponent<InventoryManager>().notes.Contains(notes[2]))
-        {
-            if (onCompleteObj != null)
-            {
-                onCompleteObj();
-                obj.instance.isComplete = true;
-                //Debug.Log("dONE 2");
-            }
-
-        }
-    }*/
-
     void FixedUpdate(){
         if(this.activeNote != null && Input.GetKeyDown(KeyCode.R)){
             audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/paper_flip", typeof(AudioClip));
@@ -386,7 +320,23 @@ public class MissionOne : Mission
         noteInInventory.transform.SetParent(notesPanel.transform);
         noteInInventory.GetComponent<Button>().onClick.AddListener(delegate { inventoryManager.GetComponent<InventoryManager>().OnClickNoteButton(noteInInventory);});
         inventoryManager.GetComponent<InventoryManager>().notes.Add(this.activeNote);
+        ES3.Save<int>("notesCollectedLengthMission_1", inventoryManager.GetComponent<InventoryManager>().notes.Count);
+        ES3.Save<int>("Note_" + notes.IndexOf(this.activeNote), notes.IndexOf(this.activeNote));
+        this.activeNote = null;
+    }
+    public void prepareNote(int index) {
+        this.activeNote = notes[index];
+        this.activeNote.GetComponent<Note>().disableEffects();
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+        //notesCanvas.gameObject.SetActive(true);
+        var noteInInventory = Instantiate(notePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
+        noteInInventory.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = this.activeNote.GetComponent<Note>().title;
+        noteInInventory.transform.SetParent(notesPanel.transform);
+        noteInInventory.GetComponent<Button>().onClick.AddListener(delegate { inventoryManager.GetComponent<InventoryManager>().OnClickNoteButton(noteInInventory); });
+        inventoryManager.GetComponent<InventoryManager>().notes.Add(this.activeNote);
+        //notes.RemoveAt(index);
         this.activeNote = null;
     }
     void CloseNote(){
@@ -425,7 +375,27 @@ public class MissionOne : Mission
         newspaperInInventory.transform.SetParent(newsPaperPanel.transform);
         newspaperInInventory.GetComponent<Button>().onClick.AddListener(delegate { inventoryManager.GetComponent<InventoryManager>().OnClickNewspaperButton(newspaperInInventory);});
         inventoryManager.GetComponent<InventoryManager>().newspapers.Add(this.activeNewspaper);
+        ES3.Save<int>("newsPaperCollectedLengthMission_1", inventoryManager.GetComponent<InventoryManager>().newspapers.Count);
+        ES3.Save<int>("Note_" + newsPapers.IndexOf(this.activeNewspaper), newsPapers.IndexOf(this.activeNewspaper));
         this.activeNewspaper = null;
+    }
+    public void prepareNewspaper(int index)
+    {
+
+
+        this.activeNewspaper = newsPapers[index];
+        this.activeNewspaper.GetComponent<Newspaper>().disableEffects();
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+        //newsPaperCanvas.gameObject.SetActive(true);
+        var newspaperInInventory = Instantiate(newsPaperPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+        newspaperInInventory.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = this.activeNewspaper.GetComponent<Newspaper>().sprite.name;
+        newspaperInInventory.transform.SetParent(newsPaperPanel.transform);
+        newspaperInInventory.GetComponent<Button>().onClick.AddListener(delegate { inventoryManager.GetComponent<InventoryManager>().OnClickNewspaperButton(newspaperInInventory); });
+        inventoryManager.GetComponent<InventoryManager>().newspapers.Add(this.activeNewspaper);
+        this.activeNewspaper = null;
+
     }
     void CloseNewspaper(){
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
