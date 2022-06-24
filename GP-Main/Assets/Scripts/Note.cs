@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
+using UnityEngine.UI;
 
 public class Note :  MonoBehaviour
 {
@@ -20,7 +22,9 @@ public class Note :  MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(Vector3.Distance(gameObject.transform.position , GameObject.FindGameObjectWithTag("Player").transform.position) <= 5){
+        // activate the effect when the player got close to the note
+        if(Vector3.Distance(gameObject.transform.position , GameObject.
+        FindGameObjectWithTag("Player").transform.position) <= 5 && !GameObject.FindObjectOfType<DialogueSystemController>().isConversationActive){
             if(onNotifyClosenessToNote != null && !isOpened){
                 onNotifyClosenessToNote(gameObject);
                 Behaviour halo = (Behaviour) gameObject.GetComponent("Halo");
@@ -31,6 +35,7 @@ public class Note :  MonoBehaviour
         }
     }
     public void disableEffects(){
+        // disbale the effect after collect the note
         gameObject.transform.parent.GetChild(0).gameObject.SetActive(false);
         Behaviour halo = (Behaviour) gameObject.GetComponent("Halo");
         halo.enabled = false; // false

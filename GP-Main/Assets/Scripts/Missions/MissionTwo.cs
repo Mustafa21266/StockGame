@@ -90,6 +90,7 @@ public class MissionTwo : Mission
 
     public MissionTwo()
     {
+        // Quiz questions
         objectives = new List<Objective>();
 
         //sideObjectives = new List<Objective>();
@@ -184,12 +185,12 @@ public class MissionTwo : Mission
                 //  360
             }
             notes[0].AddComponent<Note>();
-            notes[0].GetComponent<Note>().title = "First Note";
-            notes[0].GetComponent<Note>().content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            notes[0].GetComponent<Note>().title = "Important points related to Shares and Stocks";
+            notes[0].GetComponent<Note>().content = "Stock: It is the value of capital of a company, the unit of which is usually Rs. 100 unless stated otherwise. Stock is always bought, sold or held. 4 percent at 85: It means that Rs. 100 stock can be purchased for Rs. 85 and Rs. 4 is the annual income on Rs. 100 stock or Rs. 85 investment or cash spent. Brokerage: It is the sum of money paid to a stock dealer on the sale and purchase of stocks. It is paid on the face value. Note: While buying, brokerage is added in the purchase price i.e. it increases the purchase price, whereas while selling, it is reduced from the selling price i.e. it reduces the selling price.Stock at par: When the cash price or the selling price of the INR 10 stock is INR 10, the stock is said to be valued at par. Stock above par: When the buying price or the selling price of INR 10 stock is more that INR 10, it is said to be valued at above par. In other words, it is said to be valued at a premium. Cash: It is the money spent or received while buying or selling the stock. Cash is always invested or received. In other words, when cash is spent, it is also called investment. Market Price: The price at which that particular stock is bought or sold, it is called the Market Value or the Market price of the stock. Stock below par: When the buying or the selling price of a stock is less than that of its face value, it is said to be sold at a discount. In other words, it is also said to be sold below par.";
 
             notes[1].AddComponent<Note>();
-            notes[1].GetComponent<Note>().title = "Second Note";
-            notes[1].GetComponent<Note>().content = "Lorem Ipsum is simply dummy text of the print";
+            notes[1].GetComponent<Note>().title = "Important Formulas of Stocks and Shares";
+            notes[1].GetComponent<Note>().content = "In shares and stock questions, there could be two – three methods to find answer to a particular question. It is advised to remember all the following formulas. \n Stock purchased/sold = Investment × 100/Market Price \n Investment/Cash required = Stock × Market Price/100 \n Income/Dividend = Stock × Rate/100 \n Stock purchased/sold = Income × 100/Rate% \n Investment/Cash required = Income ×Market Price/Rate% \n Income/Dividend = Investment × Rate/Market Price";
             //notesParent.transform.GetChild(0).gameObject.GetComponent<Note>().title = "First Note";
             // newNote = new Note("First Note", "Lorem 1", notesParent.transform.GetChild(0).gameObject);
             //Debug.Log(notesParent.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Note>().content);   
@@ -419,6 +420,7 @@ public class MissionTwo : Mission
         this.activeNote = nearNote;
         Debug.Log("active note: " + this.activeNote);
         nearNote.GetComponent<Note>().isOpened = true;
+        
     }
     void OpenNewspaper()
     {

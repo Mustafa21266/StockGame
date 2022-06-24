@@ -90,6 +90,7 @@ public class MissionFour : Mission
 
     public MissionFour()
     {
+        // Quiz questions
         objectives = new List<Objective>();
 
         //sideObjectives = new List<Objective>();

@@ -12,7 +12,7 @@ public class CameraFollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // get player position
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // playerBody = GameObject.FindGameObjectWithTag("Character Body").transform;
         
@@ -21,6 +21,7 @@ public class CameraFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // get player head position 
         transform.position = GameObject.FindGameObjectWithTag("Player Head").transform.position;
         // float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         // playerBody.Rotate(Vector3.up * mouseX);

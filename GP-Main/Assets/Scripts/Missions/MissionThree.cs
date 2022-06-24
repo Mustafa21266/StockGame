@@ -8,13 +8,13 @@ using UnityEngine.Playables;
 using PixelCrushers.DialogueSystem;
 public class MissionThree : Mission
 {
+    // initiate the needed variables
+
     //public delegate void ChangeObjective(Objective nextObj);
     //public static event ChangeObjective onChangeObj;
 
     // public delegate void ChangeObjectiveSide(SideObjective nextObj);
     //public static event ChangeObjectiveSide onChangeObjSide;
-
-
 
     private GameObject secretary;
 
@@ -89,28 +89,18 @@ public class MissionThree : Mission
 
     public MissionThree()
     {
+        // Quiz questions
         objectives = new List<Objective>();
 
         //sideObjectives = new List<Objective>();
 
         quizQuestions = new List<QuizQuestion>();
         mainObjectives = new List<GameObject>();
-
-
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///
-
         //sideObjectives.Add(new SideObjective("", 10, 10, false, new Action<SideObjective>(checkFirstSideObjectiveComplete)));
-
         //sideObjectives.Add(new SideObjective("ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ tahC ﻭ ﺍﺑﺪﺃ ﻣﺤﺎﺩﺛﻪ ﻣﻊ ﺍﻟﻤﻀﻴﻔﻪ", 10, 10, false, this.checkSecondObjectiveComplete));
-
-        // sideObjectives.Add(new SideObjective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻝ buH tnemtsevnI ﻣﺠﺪﺩﺍ", 10, 10, false, this.checkThirdObjectiveComplete));
-
+        // sideObjectives.Add(new SideObjective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﻓﺘﺢ ﺑﺮﻧﺎﻣﺞ ﺍﻝ buH tnemtsevnI ﻣﺠﺪﺩﺍ", 10, 10, false, this.checkThirdObjectiveComplete);
         //sideObjectives.Add(new SideObjective("ﺍﺿﻒ ﺗﻌﻠﻴﻘﺎ ﻋﻠﻲ ﺍﻟﺒﻮﺳﺖ ﺣﺎﻭﻝ ﺍﻥ ﺗﺨﺘﺎﺭ ﺍﻟﺘﻌﻠﻴﻖ ﺍﻷﺻﺢ", 10, 10, false, this.checkFourthObjectiveComplete));
-
         //sideObjectives.Add(new SideObjective("ﺍﻏﻠﻖ ﺍﻟﺒﺮﻧﺎﻣﺞ ﻭ ﺍﺿﻐﻂ I ﻻﻏﻼﻕ ﺍﻟﺘﺎﺑﻠﺖ", 10, 10, false, this.checkFifthObjectiveComplete));
-
         quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ ﻣﻔﻬﻮﻡ ﺍﻟﻤﺆﺷﺮ ؟", new List<string>() { "ﻫﻮ ﻣﺘﻮﺳﻂ ﺍﺳﻌﺎﺭ ﺍﺳﻬﻢ ﺍﻟﺸﺮﻛﺎﺕ ﺍﻟﻤﻜﻮﻧﺔ ﻟﻪ", "ﻫﻮ ﺍﻟﺤﺪ ﺍﻷﺩﻧﻲ ﻟﺴﻌﺮ ﺍﺳﻬﻢ ﺍﻟﺸﺮﻛﺎﺕ ﺍﻟﻤﻜﻮﻧﺔ ﻟﻪ", "ﻫﻮ ﺍﻟﺤﺪ ﺍﻷﻗﺼﻲ ﻟﺴﻌﺮ ﺍﺳﻬﻢ ﺍﻟﺸﺮﻛﺎﺕ ﺍﻟﻤﻜﻮﻧﺔ ﻟﻪ", "ﻛﻞ ﻣﺎ ﺳﺒﻖ" }, 0));
         quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ ﻣﺆﺷﺮ 03 XGE ؟", new List<string>() { "ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﻋﻠﻰ 03 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ", "ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﻋﻠﻰ 02 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ", "ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﺩﻧﻲ 03 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ", "ﻫﻮ ﻣﺆﺷﺮ ﺳﻌﺮﻱ ﻳﻘﻴﺲ ﺍﺩﺍﺀ ﺍﺩﻧﻲ 02 ﺷﺮﻛﻪ ﻣﻦ ﺣﻴﺚ ﺍﻟﺴﻴﻮﻟﺔ ﻭﺍﻟﻨﺸﺎﻁ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ" }, 0));
         quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻮ  ﻣﻔﻬﻮﻡ ﺳﻌﺮ ﺍﻻﻏﻼﻕ ؟", new List<string>() { "ﻫﻮ ﺍﻟﺴﻌﺮ ﺍﻟﻨﻬﺎﺋﻲ ﺍﻟﺬﻱ ﻳﺘﻢ ﺗﺪﺍﻭﻟﻪ ﺧﻼﻝ ﺳﺎﻋﺎﺕ ﺍﻟﺴﻮﻕ ﺍﻟﻌﺎﺩﻳﺔ", "ﻫﻮ ﺍﻟﺴﻌﺮ ﺍﻟﻤﺒﺪﺃﻱ ﺍﻟﺬﻱ ﻳﺘﻢ ﺗﺪﺍﻭﻟﻪ ﺧﻼﻝ ﺳﺎﻋﺎﺕ ﺍﻟﺴﻮﻕ ﺍﻟﻌﺎﺩﻳﺔ", "ﻫﻮ ﺍﻟﺴﻌﺮ ﺍﻟﻤﺘﻮﺳﻂ ﺍﻟﺬﻱ ﻳﺘﻢ ﺗﺪﺍﻭﻟﻪ ﺧﻼﻝ ﺳﺎﻋﺎﺕ ﺍﻟﺴﻮﻕ ﺍﻟﻌﺎﺩﻳﺔ", "ﻛﻞ ﻣﺎ ﺳﺒﻖ" }, 0));
@@ -129,24 +119,15 @@ public class MissionThree : Mission
         quizQuestions.Add(new QuizQuestion("ﻣﺎ ﻫﻲ ﺍﺳﺒﺎﺏ ﺍﻟﻤﺸﺎﻛﻞ ﺑﻴﻦ ﺍﻟﻤﺴﺘﺜﻤﺮ ﻭ ﺍﻟﺴﻤﺴﺎﺭ ؟", new List<string>() { "ﺑﺴﺒﺐ ﺍﻥ ﺗﻮﻗﻌﺎﺕ ﺍﻟﻤﺴﺘﺜﻤﺮ ﺗﻜﻮﻥ ﻏﻴﺮ ﻭﺍﻗﻌﻴﻪ", "ﺍﻟﻌﻤﻠﻴﺎﺕ ﺍﻟﺘﻲ ﻳﻤﻜﻦ ﺍﻥ ﺗﺘﻢ ﺑﺪﻭﻥ ﺍﺫﻥ ﻣﺴﺒﻖ ﻣﻦ ﺍﻟﻤﺴﺘﺜﻤﺮ", "ﺑﺴﺒﺐ ﻋﺪﻡ ﺗﺒﺎﺩﻝ ﺍﻟﺜﻘﻪ ﻭ ﺍﻟﻤﻌﻠﻮﻣﺎﺕ ﻓﻴﻤﺎ ﺑﻴﻨﻬﻤﺎ", "ﻛﻞ ﻣﻦ ﺃ ﻭ ﺏ" }, 3));
 
         quizQuestions.Add(new QuizQuestion("ﻣﻦ ﻣﻤﻴﺰﺍﺕ ﺍﻷﺳﺘﺜﻤﺎﺭ ﻓﻲ ﺍﻟﺒﻮﺭﺻﻪ ﺍﻟﻤﺼﺮﻳﺔ ؟", new List<string>() { "ﺍﺭﺑﺎﺡ ﺍﻟﺸﺮﻛﻪ ﺗﻮﺯﻉ ﻋﻠﻲ ﻣﺴﺎﻫﻤﻴﻬﺎ ﻓﻲ ﺻﻮﺭﻩ ﻛﻮﺑﻮﻥ", "ﺍﻟﻌﺎﺋﺪ ﺍﻟﺮﺃﺱ ﺍﻟﻤﺎﻟﻲ ﻭ ﻫﻮ ﺍﻟﻔﺮﻕ ﺑﻴﻦ ﺳﻌﺮ ﺍﻟﺒﻴﻊ ﻭ ﺳﻌﺮ ﺷﺮﺍﺀ ﺍﻟﺴﻬﻢ", "ﺑﺴﺒﺐ ﺳﻬﻮﻟﻪ ﺍﻟﻤﻜﺴﺐ", "ﻛﻞ ﻣﻦ أ ﻭ ب" }, 3));
-
-
-
-
         //currentObjective = objectives[0].instance;
         //currentSideObjective = sideObjectives[0].instance;
-
         //Objective.onCompleteObj += checkObjComplete;
-
         //SideObjective.onCompleteObj += checkObjComplete2;
-
         dialogues = new List<Dialogue>();
-
-
-
     }
     void Start()
     {
+        // play the secretary conversation
         //cutscenePoints = new List<GameObject>();
         secretary = GameObject.FindGameObjectWithTag("Female NPC - Secretary");
         //onCompleteObj =  currentObjective.setOnCompleteObj(this);
@@ -213,6 +194,7 @@ public class MissionThree : Mission
 
     public void changeMainObjective(GameObject current)
     {
+        // changing the main objective
         Debug.Log(currentObjectiveIndex);
         //refreshObjectives();
 
@@ -236,6 +218,7 @@ public class MissionThree : Mission
     }
     public void changeSideObjective(GameObject current)
     {
+        // changing the side objective
         Debug.Log(currentSideObjectiveIndex);
         //refreshObjectives();
 
@@ -255,6 +238,7 @@ public class MissionThree : Mission
     }
     void FixedUpdate()
     {
+        // handling buttons user in the conversations 
         if (this.activeNote != null && Input.GetKeyDown(KeyCode.R))
         {
             audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/paper_flip", typeof(AudioClip));
@@ -325,6 +309,7 @@ public class MissionThree : Mission
     }
     public void StartCutsceneWithConversation()
     {
+        // starting the cut scene associated with each conversation
         cutscenesParent.transform.GetChild(2).gameObject.SetActive(true);
         this.activeCutScene = cutscenesParent.transform.GetChild(2).gameObject;
         GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerMovement>().allowedToMove = false;
@@ -336,6 +321,7 @@ public class MissionThree : Mission
     }
     void OnPlayableDirectorStarted(PlayableDirector aDirector)
     {
+        // closing the player movement when the dialoge still playing 
         //Debug.Log("Being Played");
         //aDirector.transform.parent.gameObject.SetActive(false);
         GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerMovement>().allowedToMove = false;
@@ -355,6 +341,7 @@ public class MissionThree : Mission
     // }
     void OpenNote()
     {
+        // opening note
         if (!audioSrc.GetComponent<AudioSource>().isPlaying)
         {
             audioSrc.GetComponent<AudioSource>().Play();
@@ -375,6 +362,7 @@ public class MissionThree : Mission
     }
     public void prepareNote(int index)
     {
+        // preparing the notes
         this.activeNote = notes[index];
         this.activeNote.GetComponent<Note>().disableEffects();
         canvas.transform.GetChild(1).gameObject.SetActive(false);
@@ -390,7 +378,8 @@ public class MissionThree : Mission
         this.activeNote = null;
     }
     void CloseNote()
-    {
+    {   
+        // Closing the notes
         // audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/Writing_Sound", typeof(AudioClip));
         if (!audioSrc.GetComponent<AudioSource>().isPlaying)
         {
@@ -402,7 +391,8 @@ public class MissionThree : Mission
         this.activeNote = null;
     }
     void showOpenNoteToggle(GameObject nearNote)
-    {
+    {   
+        // showing open note toggle 
         audioSrc.GetComponent<AudioSource>().clip = null;
         isCloseToNote = true;
         canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press R to Read Note";
@@ -415,7 +405,7 @@ public class MissionThree : Mission
     }
     void OpenNewspaper()
     {
-
+        // opening the newspaper
         if (!audioSrc.GetComponent<AudioSource>().isPlaying)
         {
             audioSrc.GetComponent<AudioSource>().Play();
@@ -436,8 +426,7 @@ public class MissionThree : Mission
     }
     public void prepareNewspaper(int index)
     {
-
-
+        // preparing the newspaper
         this.activeNewspaper = newsPapers[index];
         this.activeNewspaper.GetComponent<Newspaper>().disableEffects();
         canvas.transform.GetChild(1).gameObject.SetActive(false);
@@ -454,6 +443,7 @@ public class MissionThree : Mission
     }
     void CloseNewspaper()
     {
+        // closing the newspaper
         if (!audioSrc.GetComponent<AudioSource>().isPlaying)
         {
             audioSrc.GetComponent<AudioSource>().Play();
@@ -464,6 +454,7 @@ public class MissionThree : Mission
     }
     void showOpenNewspaperToggle(GameObject nearNewsPaper)
     {
+        // showing open note toggle 
         audioSrc.GetComponent<AudioSource>().clip = null;
         isCloseToNewspaper = true;
         canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press N to View News";

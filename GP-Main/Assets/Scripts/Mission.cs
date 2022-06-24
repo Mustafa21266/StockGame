@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mission : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // missions attributes initiate
     public List<Objective> objectives;
     //public List<Objective> sideObjectives;
     public int totalXP;

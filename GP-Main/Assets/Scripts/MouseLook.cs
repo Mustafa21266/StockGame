@@ -17,15 +17,12 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerBody = GameObject.FindGameObjectWithTag("Player").transform;   
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor. visible = true;  180
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // this method is responsible for locking the mouse and initiate a rotation rates
         if (!GameObject.FindObjectOfType<DialogueSystemController>().isConversationActive && !promptPanel.gameObject.active) { 
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

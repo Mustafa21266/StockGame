@@ -15,6 +15,7 @@ public class EntranceDoorAnimationControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // this method is for door open and close depending on how far or close the player from the door 
         if(Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) <= 10f && isDoorClosed == true){
             StartDoorAnimations();
             
@@ -31,6 +32,7 @@ public class EntranceDoorAnimationControl : MonoBehaviour
         }
     }
     void StartDoorAnimations(){
+        // activate the door animations 
         anim.SetBool("startDoorAnim", true);
         anim.SetBool("exitAnim", true);
         isDoorClosed = false;
@@ -44,12 +46,14 @@ public class EntranceDoorAnimationControl : MonoBehaviour
         // anim.SetBool("startDoorAnim", false);
     }
     void EndDoorAnimations(){
+        // deactivate the door animations 
         anim.SetBool("startSlideDown", true);
         anim.SetBool("endDoorAnim", true);
         anim.SetBool("startDoorAnim", false);
         isDoorClosed = true;
     }
     void resetBools(){
+        // reset the door animations after opening or closing 
         anim.SetBool("startDoorAnim", false);
         anim.SetBool("exitAnim", false);
         anim.SetBool("startSlideDown", false);

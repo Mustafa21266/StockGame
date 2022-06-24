@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using PixelCrushers.DialogueSystem;
 
 public class MissionManager : MonoBehaviour
 {
+    // this class created to manage the missions
+    public GameObject sub;
     [SerializeField]
     public Mission activeMission;
 
@@ -31,29 +34,14 @@ public class MissionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //missions = new List<Mission>();
-
-        //missions.Add(Instantiate<Mission>(new MissionOne()));
-        // activeMission = Instantiate<Mission>(missions[0]);
+        // starting by activate the mission and assign the current mission 
         Load();
         if (currentActiveMissionIndex < missions.Count) { 
             activeMission = missions[currentActiveMissionIndex];
         }
-        //image = gameObject.transform.GetChild(0).gameObject;
-        //Debug.Log(activeMission.objectives[0].title);
-        //currentObjectiveText = image.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>();
-        //currentObjectiveText.text = activeMission.objectives[0].title;
-        //currentObjectiveText.text = "";
-
-
-        //currentObjectiveText2 = image.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>();
-
-        //currentObjectiveText2.text = activeMission.sideObjectives[0].title;
-        //updateObjectives(activeMission.objectives[0]);
-        //MissionOne.onChangeObj += updateObjectiveTest;
-        //MissionOne.onChangeObjSide += updateObjectiveTest2;
     }
     void Load() {
+        // loading the next mission when the current mission is over
         currentActiveMissionIndex = ES3.Load<int>("currentActiveMissionIndex", 0);
         Debug.Log("Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey " + currentActiveMissionIndex);
         if (currentActiveMissionIndex < 4)
@@ -70,11 +58,6 @@ public class MissionManager : MonoBehaviour
             {
                 //Destroy(cutscenesParent.transform.GetChild(0).gameObject);
                 cutscenesParent.transform.GetChild(0).gameObject.SetActive(true);
-                //currentActiveMissionIndex++;
-                //Destroy(missionStartPoints[i].gameObject);
-                //Destroy(missionStartPoints[currentActiveMissionIndex].gameObject);
-                //Destroy(missionStartPoints[currentActiveMissionIndex].gameObject);
-                //missionStartPoints.RemoveAt(i);
             }
             else
             {
@@ -110,34 +93,6 @@ public class MissionManager : MonoBehaviour
             {
                 GameObject.FindObjectOfType<MissionFour>().StartCutsceneWithConversation();
             }
-
-
-
-
-
-
-            /*
-
-                    cutscenesParent.transform.GetChild(0).gameObject.SetActive(true);
-                            missions[currentActiveMissionIndex].gameObject.SetActive(true);
-                            activeMission = missions[currentActiveMissionIndex];
-                            //missionStartPoints[1].gameObject.SetActive(true);
-                            GameObject.FindGameObjectWithTag("Player").transform.position = missionStartPoints[0].transform.position - new Vector3(4f, 0f, -2.5f);
-                            GameObject.FindGameObjectWithTag("Player").transform.Rotate(new Vector3(0f, 90f, 0f), Space.Self);
-                            promptPanel.gameObject.SetActive(false);
-                            //Destroy(missionStartPoints[0].gameObject);
-                    if (currentActiveMissionIndex == 1)
-                    {
-                        GameObject.FindObjectOfType<MissionTwo>().StartCutsceneWithConversation();
-                    }
-                    else if (currentActiveMissionIndex == 2)
-                    {
-                        GameObject.FindObjectOfType<MissionThree>().StartCutsceneWithConversation();
-                    }
-                    else if (currentActiveMissionIndex == 3)
-                    {
-                        GameObject.FindObjectOfType<MissionFour>().StartCutsceneWithConversation();
-                    }*/
         }
         else {
             for (var i = 0; i < currentActiveMissionIndex; i++)
@@ -156,6 +111,8 @@ public class MissionManager : MonoBehaviour
     public void updateObjectiveTest(Objective obj) {
         //Debug.Log(obj.title);
         //Debug.Log(currentObjectiveText.text);
+
+        // changing the titles of the mission to finished when the player finish it
         if (!obj.title.Contains("Finished")) {
             currentObjectiveTextGameObject.GetComponent<TextMeshProUGUI>().text = obj.title;
         } else if (obj.title == "Finished Final")
@@ -189,15 +146,10 @@ public class MissionManager : MonoBehaviour
                 }
 
             }
-/*            else if (currentActiveMissionIndex == missions.Count)
-            {
-                Destroy(missionStartPoints[currentActiveMissionIndex - 1].gameObject);
-                Destroy(missions[currentActiveMissionIndex - 1].gameObject);
-                ES3.Save<int>("currentActiveMissionIndex", currentActiveMissionIndex);
-            }*/
         }
     }
     public void startNewMission() { 
+        // starting new mission after destroying the current mission and if it have a cut scence it will activate it
             Destroy(activeMission.gameObject);
         Debug.Log("CURRENT INDEX : " + currentActiveMissionIndex);
         ES3.Save<int>("currentActiveMissionIndex", currentActiveMissionIndex);
@@ -240,6 +192,7 @@ public class MissionManager : MonoBehaviour
         }
     }
     public void closePromptPanel() {
+        // closing prompt panel 
         promptPanel.gameObject.SetActive(false);
     }
     public void updateObjectiveTest2(Objective obj)
@@ -247,6 +200,7 @@ public class MissionManager : MonoBehaviour
         currentSideObjectiveTextGameObject.GetComponent<TextMeshProUGUI>().text = string.IsNullOrEmpty(obj.title) ? "" : obj.title;
     }
     void updateObjectives(Objective obj){
+        // update the mission objectives as every mission have an objectives inside it
         Font arial;
         arial = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
         // Create the Text GameObject.
@@ -270,6 +224,7 @@ public class MissionManager : MonoBehaviour
     }
     void updateObjectives2(SideObjective obj)
     {
+        // update the second objective of the mission
         Font arial;
         arial = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
         // Create the Text GameObject.
@@ -294,12 +249,16 @@ public class MissionManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // get the player distance from the mission to display the prompt panel
         if (missionStartPoints.Count > 0 && currentActiveMissionIndex < missionStartPoints.Count) { 
         if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, missionStartPoints[currentActiveMissionIndex  +  1].gameObject.transform.position) <= 5)
         {
             promptPanel.gameObject.SetActive(true);
         }
-        
+        if (GameObject.FindObjectOfType<DialogueSystemController>().isConversationActive)
+        {
+            gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = "";
+        }
         }
         }
 }

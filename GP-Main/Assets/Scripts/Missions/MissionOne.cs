@@ -90,6 +90,7 @@ public class MissionOne : Mission
 
     public MissionOne()
     {
+        // Quiz questions
         objectives = new List<Objective>();
 
         //sideObjectives = new List<Objective>();
@@ -349,10 +350,11 @@ public class MissionOne : Mission
         notesCanvas.gameObject.SetActive(false);
         this.activeNote = null;
     }
-    void showOpenNoteToggle(GameObject nearNote){
+    void showOpenNoteToggle(GameObject nearNote){ 
         audioSrc.GetComponent<AudioSource>().clip =  null;
         isCloseToNote = true;
-        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Press R to Read Note";
+        canvas.transform.GetChild(1).gameObject.transform.GetChild(0).
+        gameObject.GetComponent<Text>().text = "Press R to Read Note";
         canvas.transform.GetChild(1).gameObject.SetActive(true);
         noteTitle.text = nearNote.GetComponent<Note>().title;
         noteContent.text = nearNote.GetComponent<Note>().content;

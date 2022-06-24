@@ -13,7 +13,9 @@ using System.Text;
 
 [Serializable]
 public class Profile{
-    public string symbol;
+  // Inventory manager 
+  // initiate variables needed
+  public string symbol;
   public double price;
   public float beta;
   public int volAvg;
@@ -37,6 +39,7 @@ public class Profile{
 
 [Serializable]
 public class Symbol{
+    // initiate variables needed
     public string symbol;
     public string name;
     public double price;
@@ -49,13 +52,14 @@ public class Symbol{
 [Serializable]
 public class SymbolInfo
 {
+    // initiate variables needed
     // public int id;
     // public string name;
     public Symbol[] symbols;
 }
 public class InventoryManager : MonoBehaviour
 {
-
+    // initiate variables needed
     public GameObject NotesPanel;
     public GameObject NewspaperPanel;
     public GameObject QuizPanel;
@@ -127,6 +131,7 @@ public class InventoryManager : MonoBehaviour
         updateDropDown();
  }
  public void updateDropDown(){
+    // Drop down list for stocks to be added or removed
      var tempList = new List<string>();
         tempList.Add("Select Stock");
         this.dropdownOptions = new List<string>();
@@ -147,7 +152,7 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Open the tablet by pressing I
         if(Input.GetKeyDown(KeyCode.I)){
             SwitchInventory();
         }
@@ -155,6 +160,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void handleOnChangeDropdownValue(){
+        // drop down list update with the selled stocks
         if(sellingDropdown.GetComponent<TMP_Dropdown>().itemText.ToString() == "Select Stock"){
 
         }else {
@@ -168,6 +174,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     IEnumerator populateSellingFields(StockPurchase purch){
+        // Stocks purchase status update and revenues 
         yield return new WaitForSeconds(1f);
         Debug.Log(purch.purchaseDate);
         sellingDropdown.transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = (Sprite) Resources.Load("Sprites/"+ purch.stockProfile.symbol + "_LOGO_BUTTON", typeof(Sprite));
@@ -178,17 +185,11 @@ public class InventoryManager : MonoBehaviour
         sellingDropdown.transform.parent.transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = "Total Recieved After Sale: " + (purch.stockProfile.price * purch.numOfShares);
         numOfSharesSliderSelling.maxValue = purch.numOfShares;
         numOfSharesSliderSelling.value = purch.numOfShares;
-        // Debug.Log(sellingDropdown.transform.parent.transform.GetChild(8));
-        // Debug.Log(sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<TextMeshProUGUI>());
-        // Debug.Log(sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<TextMesh>());
-        // Debug.Log(sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<TextMeshPro>());
-        // Debug.Log(sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<Tmpro>());
-        // Debug.Log(sellingDropdown.transform.parent.transform.GetChild(sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<TextMeshProUGUI>()));
         sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<TMP_InputField>().text = purch.numOfShares.ToString();
 
     }
     void SwitchInventory(){
-        
+        // sounds of switching in the inventory    
         if(gameObject.transform.GetChild(0).gameObject.activeSelf == true){
             audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/phone_close", typeof(AudioClip));
         }else {
@@ -201,6 +202,7 @@ public class InventoryManager : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
     }
     public void OpenNotesAppVoid(){
+        // play the Notes sound when open
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -209,6 +211,7 @@ public class InventoryManager : MonoBehaviour
         
     }
     public void OpenNewspaperAppVoid(){
+        // play the Newspaper sound when open
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -217,6 +220,7 @@ public class InventoryManager : MonoBehaviour
         
     }
     public void OpenQuizAppVoid(){
+        // play the quiz app sound when open
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -228,6 +232,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void OpenTradingAppVoid(){
+        // play the trading app sound when open
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -237,6 +242,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void OpenStockProfileVoid(string stockName){
+        // play the stock profile sound when open
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -246,6 +252,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void OpenChatAppVoid()
     {
+        // play the chat app sound when open
         audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/app_open", typeof(AudioClip));
         if (!audioSrc.GetComponent<AudioSource>().isPlaying)
         {
@@ -256,6 +263,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void OpenInvestmentHubAppVoid()
     {
+        // play the investment hub app sound when open
         audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/app_open", typeof(AudioClip));
         if (!audioSrc.GetComponent<AudioSource>().isPlaying)
         {
@@ -266,6 +274,7 @@ public class InventoryManager : MonoBehaviour
     }
     IEnumerator OpenInvestmentHubApp()
     {
+        // opening the investment hub app
         yield return new WaitForSeconds(2f);
         activeAppIndex = apps.IndexOf(apps[5]);
         //Thread.Sleep(1000);
@@ -274,6 +283,7 @@ public class InventoryManager : MonoBehaviour
     }
     IEnumerator OpenChatApp()
     {
+        // opening the chat app
         yield return new WaitForSeconds(2f);
         activeAppIndex = apps.IndexOf(apps[4]);
         //Thread.Sleep(1000);
@@ -281,6 +291,7 @@ public class InventoryManager : MonoBehaviour
         scrollFieldChat.GetComponent<ScrollRect>().verticalNormalizedPosition = 0;
     }
     IEnumerator OpenStockProfile(string stockName){
+        // opening the stock profile app
         getStockDetails(stockName);
         yield return new WaitForSeconds(1f);
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
@@ -293,6 +304,7 @@ public class InventoryManager : MonoBehaviour
         stockDetailsPanel.SetActive(true);
     }
     void getStockDetails(string stockName){
+        // getting the stock details from API
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("https://financialmodelingprep.com/api/v3/profile/{0}?apikey={1}", stockName,"17235435147ccfaa61e7630318bbf3f9"));
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -324,12 +336,15 @@ public class InventoryManager : MonoBehaviour
 
     }
     public void checkOnValueChangedNumOfShares(){
+        // value changing for shares
         StartCoroutine(checkOnValueChangedNumOfSharesCor());
     }
     public bool checkForObjForth() {
+        // get the quiz question status 
         return (this.finishedQuiz == true && this.currentQuestionIndex == 0 && this.quizQuestions.Count == 0) ? true : false;
     }
     IEnumerator checkOnValueChangedNumOfSharesCor(){
+        // changing the number of shares when purchase new shares
         yield return new WaitForSeconds(0.5f);
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
@@ -354,12 +369,14 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void checkOnValueChangedNumOfSharesSelling(){
+        // changing the number of shares when sell new shares
         if(sellingDropdown.GetComponent<TMP_Dropdown>().itemText.ToString() != "Select Stock"){
 
             StartCoroutine(checkOnValueChangedNumOfSharesSellingCor());
         }
     }
     IEnumerator checkOnValueChangedNumOfSharesSellingCor(){
+        // changing the number of shares when sell new shares
         yield return new WaitForSeconds(0.5f);
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
@@ -370,12 +387,6 @@ public class InventoryManager : MonoBehaviour
         var currentStockProfileTemp = GameObject.FindObjectOfType<PlayerMovement>().stockPurchases.Find(p => p.id.ToString() == tempId);
         var newTotalDue = Mathf.Round(numOfSharesSliderSelling.value) * Mathf.Round((float) currentStockProfileTemp.stockProfile.price);
         sellingDropdown.transform.parent.transform.GetChild(8).GetComponent<TMP_InputField>().text = Mathf.Round(numOfSharesSliderSelling.value).ToString();
-        // Debug.Log(Mathf.Round((float)currentStockProfileTemp.price));
-        //var newTotalDue = int.Parse(newValue) * this.currentStockProfileTemp.price;
-        // var profile = stockDetailsPanel.transform.GetChild(0);
-        // profile.transform.GetChild(19).GetComponent<TextMeshProUGUI>().text = "Total Due (# of Shares X Price): " + newTotalDue.ToString();
-        // profile.transform.GetChild(20).GetComponent<TextMeshProUGUI>().text = "Available Funds: " + GameObject.FindObjectOfType<PlayerMovement>().cashAmountForPlayer.ToString();
-        // profile.transform.GetChild(21).GetComponent<TextMeshProUGUI>().text = "Funds After Purchase: " + (GameObject.FindObjectOfType<PlayerMovement>().cashAmountForPlayer - newTotalDue).ToString();
         sellingDropdown.transform.parent.transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = "Total Recieved After Sale: " + (currentStockProfileTemp.stockProfile.price * Mathf.Round(numOfSharesSliderSelling.value));
         if(Mathf.Round(numOfSharesSliderSelling.value) != 0){
             sellingDropdown.transform.parent.transform.GetChild(10).GetComponent<Image>().color = new Color(0,1,0,0.4f);
@@ -387,6 +398,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void handleOnClickPurchaseBtn(GameObject notificationObj){
+        // handling purchase button 
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -394,6 +406,7 @@ public class InventoryManager : MonoBehaviour
         StartCoroutine(GameObject.FindObjectOfType<PlayerMovement>().purchaseStock(Mathf.Round(numOfSharesSlider.value), this.currentStockProfile, notificationObj));
     }
     public void handleOnClickSellBtn(GameObject notificationObj){
+        // handling sell button 
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -403,6 +416,7 @@ public class InventoryManager : MonoBehaviour
         StartCoroutine(GameObject.FindObjectOfType<PlayerMovement>().sellStock(Mathf.Round(numOfSharesSliderSelling.value), currentStockProfileTemp, notificationObj));
     }
     IEnumerator OpenNotesApp(){
+        // opening notes app
         yield return new WaitForSeconds(2f);
         activeAppIndex = apps.IndexOf(apps[0]);
         //Thread.Sleep(1000);
@@ -410,46 +424,40 @@ public class InventoryManager : MonoBehaviour
     }
 
     IEnumerator OpenNewspaperApp(){
+        // opening newspaper app
         yield return new WaitForSeconds(2f);
         activeAppIndex = apps.IndexOf(apps[1]);
         //Thread.Sleep(1000);
         NewspaperPanel.SetActive(true);
     }
     IEnumerator OpenQuizApp(){
+        // opening quiz app
         yield return new WaitForSeconds(0f);
         activeAppIndex = apps.IndexOf(apps[2]);
         //Thread.Sleep(1000);
         QuizPanel.SetActive(true);
         StartCoroutine(populateQuestions());
-        
-        // for(var i = 0 ; i< quizQuestions.Count; i++){
-            
-        // }
     }
     IEnumerator OpenTradingApp(){
+        // opening trading app
         yield return new WaitForSeconds(2f);
         activeAppIndex = apps.IndexOf(apps[3]);
         //Thread.Sleep(1000);
         TradingPanel.SetActive(true);
     }
     void getSymbolsList(){
+        // Getting symboles of companier from API
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("https://financialmodelingprep.com/api/v3/quote/AAPL,MSFT,AMZN,TSLA,KO,PFE,FB,GOOG,BABA,MCD?apikey={0}", "17235435147ccfaa61e7630318bbf3f9"));
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
-        // sb = new StringBuilder();
-        //sb.Append("{ \"symbols\": ");
         string jsonResponse = reader.ReadToEnd();
-        //sb.Append(jsonResponse + " }");
         Symbol[] objects = JsonHelper.getJsonArray<Symbol> (jsonResponse);
-        //SymbolInfo symbolsList = JsonUtility.FromJson<SymbolInfo>(sb.ToString());
         print(objects.Length);
-        // for(var i = 0; i < 5; i++){
-            
-        // }
     }
 
   public class JsonHelper
 {
+    // API respose format helper
     public static T[] getJsonArray<T>(string json)
     {
         string newJson = "{ \"array\": " + json + "}";
@@ -464,6 +472,7 @@ public class InventoryManager : MonoBehaviour
     }
 }
     void getInfo(){
+        // getting stocks information from the API
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("https://financialmodelingprep.com/api/v3/key-metrics-ttm/AAPL?limit=40&apikey={0}", "17235435147ccfaa61e7630318bbf3f9"));
           HttpWebResponse response = (HttpWebResponse)request.GetResponse();
           StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -475,6 +484,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void checkAnswerSelected(GameObject btn){
+        // Check the selected answers in the quizes
         // InputManager.instance.controls.Player.Disable();
         this.finishedQuiz = false;
         bool isCorrect = false;
@@ -516,6 +526,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     IEnumerator showResults(){
+        // showing the result of the quiz and the reward the player achieved
         yield return new WaitForSeconds(2f);
         for(var i = 0; i < 6; i++){
                 firstMissionChallengeParent.transform.GetChild(i).gameObject.SetActive(false);
@@ -568,11 +579,13 @@ public class InventoryManager : MonoBehaviour
     }
     public string Reverse( string s )
     {
+        // reversing the strings to handle the arabic language
     char[] charArray = s.ToCharArray();
     Array.Reverse( charArray );
     return new string( charArray );
     }
     IEnumerator populateQuestions(){
+        // populate the questions for the missions quiz
         this.finishedQuiz = false;
         if(currentQuestionIndex != 0){
             yield return new WaitForSeconds(2f);
@@ -616,13 +629,10 @@ public class InventoryManager : MonoBehaviour
         });
         firstMissionChallengeParent.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quizQuestions[currentQuestionIndex].questionText;
         firstMissionChallengeParent.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = currentQuestionIndex + 1 + "/" + quizQuestions.Count;
-        // firstMissionChallengeParent.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quizQuestions[currentQuestionIndex].CorrectAnswer;
-        // firstMissionChallengeParent.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quizQuestions[currentQuestionIndex].questionAnswerTwo;
-        // firstMissionChallengeParent.transform.GetChild(4).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quizQuestions[currentQuestionIndex].questionAnswerThree;
-        // firstMissionChallengeParent.transform.GetChild(5).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quizQuestions[currentQuestionIndex].questionAnswerFour;
     }
 
     public void CloseCurrentApp(){
+        // closing any opened app 
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -632,18 +642,21 @@ public class InventoryManager : MonoBehaviour
         }
     }
     public void OpenBuyingTab(){
+        // opening buying tab in the trading app
         BuyingGameObject.gameObject.SetActive(true);
         SellingGameObject.gameObject.SetActive(false);
         scrollField.GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
 
     }
     public void OpenSellingTab(){
+        // opening selling tab in the trading app
         BuyingGameObject.gameObject.SetActive(false);
         SellingGameObject.gameObject.SetActive(true);
         scrollField.GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
 
     }
     public void exitStockProfile(){
+        // exite stock prifile app
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -652,6 +665,7 @@ public class InventoryManager : MonoBehaviour
         stockDetailsPanel.gameObject.SetActive(false);
     }
     public void OnClickNoteButton(GameObject g){
+        // display the note content when clicked
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();
@@ -666,6 +680,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }    public void OnClickNewspaperButton(GameObject g){
+        // display the newspaper content when clicked
         audioSrc.GetComponent<AudioSource>().clip =  (AudioClip) Resources.Load("Audio/app_open", typeof(AudioClip));
         if(!audioSrc.GetComponent<AudioSource>().isPlaying){
             audioSrc.GetComponent<AudioSource>().Play();

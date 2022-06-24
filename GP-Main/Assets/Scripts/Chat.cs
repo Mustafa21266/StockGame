@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Chat : MonoBehaviour
 {
+    // This class is responsible of chatting application on the tablet
     public GameObject TopLeftMessage;
     public GameObject TopRightMessage;
 
@@ -33,6 +34,7 @@ public class Chat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // This method for the chat conversation hard coded because of lack of unity support for the Arabic language
         conversation = new List<List<string>>();
 
         npcChoices = new List<List<string>>();
@@ -65,15 +67,8 @@ public class Chat : MonoBehaviour
         
         choices.Add(new List<string>() { "ﺑﺲ ﺍﻟﺒﻮﺭﺻﺔ ﻻﺯﻡ ﺗﺎﺧﺪ ﻣﻮﻗﻒ ﺿﺪ ﺍﻟﻌﻤﻠﻴﺎﺕ ﺩﻱ ﻭﺗﻜﻮﻥ ﻣﻊ ﺍﻟﻤﻨﺼﻮﺏ ﻋﻠﻴﻪ ﻣﺶ ﺗﺴﻴﺒﻬﻢ", "ﺩﻩ ﺑﻴﻜﻮﻥ ﺍﻧﻪ ﻣﻘﺮﺍﺵ ﺍﻟﻮﺭﻕ ﻛﻮﻳﺲ ﻗﺒﻞ ﺍﻟﺘﻮﻗﻴﻊ ﻋﻠﻴﻪ ﺍﻭ ﻣﻀﻰ ﻋﻠﻰ ﻭﺭﻕ ﻋﻠﻰ ﺑﻴﺎﺽ ﻣﻬﻤﺎ ﻛﺎﻧﺖ ﺛﻘﺘﻚ ﺑﺎﻟﺸﺮﻛﺔ ﺍﻻﻓﺮﺍﻁ ﻓﻲ ﺍﻟﺜﻘﺔ ﻳﻌﺘﺒﺮ ﻣﻦ ﺍﺳﻮﺍ ﺍﻟﺠﺮﺍﺋﻢ ﻭﻫﻨﺎ ﻣﺶ ﺑﻴﻜﻮﻥ ﻓﻲ ﺇﻳﺪ ﺍﻟﺒﻮﺭﺻﺔ ﺍﻧﻬﺎ ﺗﻌﻤﻞ ﺣﺎﺟﻪ ﻷﻧﻪ ﻫﻮ ﺍﻟﻠﻲ ﻭﻗﻊ ﻧﻔﺴﻪ ﻓﻲ ﺩﻩ ﻭﻣﻤﻜﻦ ﻳﻠﺠﺎ ﻟﻠﺤﻞ ﺍﻟﻘﻀﺎﺋﻲ" });
 
-
-
         userChoices.Add(new List<string>() { "ﻣﺜﻼ ﺷﺨﺺ ﻟﻘﻰ ﺍﻧﻪ ﻣﺘﻜﺒﺪ ﺧﺴﺎﺋﺮ ﻛﺒﻴﺮﻩ ﻓﻲ ﻋﻤﻠﻴﺎﺕ ﻣﻦ ﻏﻴﺮ ﻋﻠﻤﻪ", "ﺑﺲ ﺍﻟﺒﻮﺭﺻﺔ ﻻﺯﻡ ﺗﺎﺧﺪ ﻣﻮﻗﻒ ﺿﺪ ﺍﻟﻌﻤﻠﻴﺎﺕ ﺩﻱ ﻭﺗﻜﻮﻥ ﻣﻊ ﺍﻟﻤﻨﺼﻮﺏ ﻋﻠﻴﻪ ﻣﺶ ﺗﺴﻴﺒﻬﻢ" });
 
-
-        //userChoices.Add(new List<string>() { "ﻣﺜﻼ ﺷﺨﺺ ﻟﻘﻰ ﺍﻧﻪ ﻣﺘﻜﺒﺪ ﺧﺴﺎﺋﺮ ﻛﺒﻴﺮﻩ ﻓﻲ ﻋﻤﻠﻴﺎﺕ ﻣﻦ ﻏﻴﺮ ﻋﻠﻤﻪ", "ﺑﺲ ﺍﻟﺒﻮﺭﺻﺔ ﻻﺯﻡ ﺗﺎﺧﺪ ﻣﻮﻗﻒ ﺿﺪ ﺍﻟﻌﻤﻠﻴﺎﺕ ﺩﻱ ﻭﺗﻜﻮﻥ ﻣﻊ ﺍﻟﻤﻨﺼﻮﺏ ﻋﻠﻴﻪ ﻣﺶ ﺗﺴﻴﺒﻬﻢ" });
-
-        //conversation.Add(new List<string>() { "", "ﺩﻩ ﺑﻴﻜﻮﻥ ﺍﻧﻪ ﻣﻘﺮﺍﺵ ﺍﻟﻮﺭﻕ ﻛﻮﻳﺲ ﻗﺒﻞ ﺍﻟﺘﻮﻗﻴﻊ ﻋﻠﻴﻪ ﺍﻭ ﻣﻀﻰ ﻋﻠﻰ ﻭﺭﻕ ﻋﻠﻰ ﺑﻴﺎﺽ ﻣﻬﻤﺎ ﻛﺎﻧﺖ ﺛﻘﺘﻚ ﺑﺎﻟﺸﺮﻛﺔ ﺍﻻﻓﺮﺍﻁ ﻓﻲ ﺍﻟﺜﻘﺔ ﻳﻌﺘﺒﺮ ﻣﻦ ﺍﺳﻮﺍ ﺍﻟﺠﺮﺍﺋﻢ ﻭﻫﻨﺎ ﻣﺶ ﺑﻴﻜﻮﻥ ﻓﻲ ﺇﻳﺪ ﺍﻟﺒﻮﺭﺻﺔ ﺍﻧﻬﺎ ﺗﻌﻤﻞ ﺣﺎﺟﻪ ﻷﻧﻪ ﻫﻮ ﺍﻟﻠﻲ ﻭﻗﻊ ﻧﻔﺴﻪ ﻓﻲ ﺩﻩ ﻭﻣﻤﻜﻦ ﻳﻠﺠﺎ ﻟﻠﺤﻞ ﺍﻟﻘﻀﺎﺋﻲ" });
-        
         conversation.Add(new List<string>() { "ﻓﻬﻤﺖ ﺷﻜﺮﺍ ﺟﺪﺍ ﻟﺤﻀﺮﺗﻚ", "ﺍﻟﻌﻔﻮ ﻋﻠﻲ ﺍﻳﻪ" });
 
 
@@ -92,6 +87,7 @@ public class Chat : MonoBehaviour
         }*/
     }
     IEnumerator close() {
+        // closing method to check if the conversation completed to change the objective
         yield return new WaitForSeconds(20f);
         StartCoroutine(run(conversation[conversation.Count - 1]));
         gameObject.GetComponent<Objective>().isComplete = true;
@@ -102,7 +98,7 @@ public class Chat : MonoBehaviour
     }
     IEnumerator populate() {
 
-
+        // populate the conversation
         StartCoroutine(run(conversation[0]));
 
         yield return new WaitForSeconds(10f);
@@ -113,32 +109,14 @@ public class Chat : MonoBehaviour
 
         
        StartCoroutine(populateChoices());
-
-        /*var newThree = Instantiate(TopRightMessage, new Vector3(500, 0, 0), Quaternion.identity);
-        newThree.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = conversation[1][0];
-        newThree.transform.SetParent(chatPanel.transform);
-        newThree.gameObject.SetActive(true);
-        var newFour = Instantiate(TopLeftMessage, new Vector3(500, 0, 0), Quaternion.identity);
-        newFour.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = conversation[1][1];
-        newFour.transform.SetParent(chatPanel.transform);
-        newFour.gameObject.SetActive(true);*/
-
-
     }
 
     IEnumerator run(List<string> conv) {
-        /*if (choicesPanel.transform.childCount == 0)
-        {
-            
-        }
-*/
+        // this method to run the audio sound of typing status
         audioSrc.GetComponent<AudioSource>().Stop();
         audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/typing", typeof(AudioClip));
         audioSrc.GetComponent<AudioSource>().Play();
-        /*if (!audioSrc.GetComponent<AudioSource>().isPlaying)
-        {
-            audioSrc.GetComponent<AudioSource>().Play();
-        }*/
+        // chaning the status of the chat if typing
         StartCoroutine(sendMessage(conv, 0));
         yield return new WaitForSeconds(5f);
         status.text = "Typing";
@@ -151,28 +129,20 @@ public class Chat : MonoBehaviour
         yield return new WaitForSeconds(5f);
         if (index == 0)
         {
+            // running the sending massage and massage delivered sounds 
             audioSrc.GetComponent<AudioSource>().Stop();
             audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/sent_msg", typeof(AudioClip));
             audioSrc.GetComponent<AudioSource>().Play();
-/*            if (!audioSrc.GetComponent<AudioSource>().isPlaying)
-            {
-                audioSrc.GetComponent<AudioSource>().Play();
-            }*/
             var newOne = Instantiate(TopRightMessage, new Vector3(500, 0, 0), Quaternion.identity);
             newOne.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = conv[0];
             newOne.transform.SetParent(chatPanel.transform);
-            //audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/typing", typeof(AudioClip));
             newOne.gameObject.SetActive(true);
         }
         else {
             audioSrc.GetComponent<AudioSource>().Stop();
             audioSrc.GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/msg_delivered", typeof(AudioClip));
             audioSrc.GetComponent<AudioSource>().Play();
-            /*if (!audioSrc.GetComponent<AudioSource>().isPlaying)
-            {
-                audioSrc.GetComponent<AudioSource>().Play();
-            }*/
-            
+            // editing the status to make it online when the chat is active
             var newTwo = Instantiate(TopLeftMessage, new Vector3(500, 0, 0), Quaternion.identity);
             newTwo.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = conv[1];
             newTwo.transform.SetParent(chatPanel.transform);
@@ -180,12 +150,9 @@ public class Chat : MonoBehaviour
             status.text = "Online";
             status.color = new Color(255, 255, 255, 1f);
         }
-
-        
-
     }
     IEnumerator populateChoices()
-    {
+    {   // this method populating the choices to the player in a form of buttons
         yield return new WaitForSeconds(5f);
         for (var i = 0; i < choices.Count; i++) {
             var newOne = Instantiate(choiceBtn, new Vector3(500, 0, 0), Quaternion.identity);
@@ -195,25 +162,11 @@ public class Chat : MonoBehaviour
             newOne.GetComponent<Button>().onClick.AddListener(delegate { this.reply(newOne.gameObject); });
             childC++;
         }
-        /*if (index == 0)
-        {
-            
-        }
-        else
-        {
-            var newTwo = Instantiate(TopLeftMessage, new Vector3(500, 0, 0), Quaternion.identity);
-            newTwo.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = conv[1];
-            newTwo.transform.SetParent(chatPanel.transform);
-            newTwo.gameObject.SetActive(true);
-        }*/
-
-
 
     }
 
     public void reply(GameObject instance) {
-        //newOne.GetComponent<Button>().onClick.AddListener(delegate { this.reply(newOne.gameObject); });
-        //StartCoroutine(sendMessage(new List<string> { instance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text, ""}, 0));
+        // reply method to send the reply depending on the player choices
         var parent = instance.transform.parent;
         for (var i = 0; i < choices.Count; i++)
         {
@@ -231,30 +184,8 @@ public class Chat : MonoBehaviour
                     finishedChoices = true;
                 }
             }
-            /*for (var j = 0; i < choices[i].Count; j++)
-            {
-                if (userChoices[i][j] == instance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text)
-                {
-                    //var idx = choices[i].IndexOf();
-                    StartCoroutine(run(new List<string> { userChoices[i][userChoices[i].IndexOf(instance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text)], npcChoices[i][userChoices[i].IndexOf(instance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text)] }));
-                    Destroy(instance.gameObject);
-                }
-                else
-                {
-                    Debug.Log("pRO");
-                    Debug.Log("I: " + i);
-                    Debug.Log("J: " + j);
-                }
-
-            }*/
         }
 
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

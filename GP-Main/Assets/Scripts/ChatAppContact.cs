@@ -17,6 +17,7 @@ public class ChatAppContact : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // this method is used to put the characters avatars in the convesations
         if (this.avatar != null) {
             gameObject.transform.GetChild(2).transform.GetChild(0).GetComponent<Image>().sprite = this.avatar;
         }
