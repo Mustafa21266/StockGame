@@ -61,8 +61,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Window\TimelineWindow_Breadcrumbs.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\treeview\Control.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Undo\ApplyDefaultUndoAttribute.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\CustomEditors\CustomTimelineEditorCache.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Actions\Invoker.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\CustomEditors\CustomTimelineEditorCache.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\Utils\EditModeRippleUtils.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Actions\MarkerAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\Utils\EditModeMixUtils.cs" />
@@ -72,8 +72,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Items\ClipItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\TimelineSelection.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Undo\UndoExtensions.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\AddDelete\IAddDeleteItemMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Utilities\MarkerModifier.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\AddDelete\IAddDeleteItemMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Window\TimelineWindow_Duration.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Tooltip.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\Sequence\SelectAndMoveItem.cs" />
